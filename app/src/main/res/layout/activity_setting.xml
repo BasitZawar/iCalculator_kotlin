@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settingsBackgroundLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".ui.settings.Setting_Activity">
+
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/settingBannerLayout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="60dp"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/constSettingAppBar"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constSettingAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/ChildConstraint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/arrowBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_icon_arrowback2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_Appbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_Appbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="120dp"
+            android:text="Settings"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/arrowBack"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ChildConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/adrelative"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constSettingAppBar"
+        tools:ignore="NotSibling">
+
+        //card 1
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutCard1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cardviewshape"
+            android:paddingVertical="10dp"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_history"
+                android:layout_width="33dp"
+                android:layout_height="34dp"
+                android:padding="3dp"
+                android:src="@drawable/history_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_historyOfCalculations"
+                app:layout_constraintEnd_toStartOf="@+id/tv_historyOfCalculations"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_historyOfCalculations" />
+
+            <TextView
+                android:id="@+id/tv_historyOfCalculations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif"
+                android:foregroundGravity="center"
+                android:gravity="left"
+                android:padding="10dp"
+                android:text="History of Calculations"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/arrowForward"
+                android:layout_width="33dp"
+                android:layout_height="34dp"
+                android:layout_marginEnd="20dp"
+                android:padding="3dp"
+                android:src="@drawable/arrowforward"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_historyOfCalculations"
+                app:layout_constraintEnd_toEndOf="@+id/tv_historyOfCalculations"
+                app:layout_constraintStart_toEndOf="@+id/tv_historyOfCalculations"
+                app:layout_constraintTop_toTopOf="@+id/tv_historyOfCalculations" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        //card background color and text color
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutColors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/cardviewshape"
+            android:paddingVertical="10dp"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutCard1">
+
+            <ImageView
+                android:id="@+id/img_bgColor"
+                android:layout_width="33dp"
+                android:layout_height="34dp"
+                android:padding="3dp"
+                android:src="@drawable/bg_coloricon"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_backgroundColor"
+                app:layout_constraintEnd_toStartOf="@+id/tv_backgroundColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_backgroundColor" />
+
+            <TextView
+                android:id="@+id/tv_backgroundColor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="start"
+                android:padding="10dp"
+                android:text="Change Background Color"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/arrowForward2"
+                android:layout_width="33dp"
+                android:layout_height="34dp"
+                android:layout_marginEnd="20dp"
+                android:padding="3dp"
+                android:src="@drawable/arrowforward"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_backgroundColor"
+                app:layout_constraintEnd_toEndOf="@+id/tv_backgroundColor"
+                app:layout_constraintStart_toEndOf="@+id/tv_backgroundColor"
+                app:layout_constraintTop_toTopOf="@+id/tv_backgroundColor" />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="60dp"
+                android:background="@color/viewColor"
+                app:layout_constraintBottom_toTopOf="@+id/tv_textColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_backgroundColor" />
+
+            // card 3
+
+            <ImageView
+                android:id="@+id/img_textColor"
+                android:layout_width="33dp"
+                android:layout_height="34dp"
+                android:padding="3dp"
+                android:src="@drawable/text_coloricon"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_textColor"
+                app:layout_constraintEnd_toStartOf="@+id/tv_textColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_textColor" />
+
+            <TextView
+                android:id="@+id/tv_textColor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="16dp"
+                android:drawablePadding="15dp"
+                android:fontFamily="sans-serif"
+                android:gravity="left"
+                android:padding="10dp"
+                android:text="Change Text Color"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view1" />
+
+            <ImageView
+                android:id="@+id/arrowForward3"
+                android:layout_width="33dp"
+                android:layout_height="34dp"
+                android:layout_marginEnd="20dp"
+                android:padding="3dp"
+                android:src="@drawable/arrowforward"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_textColor"
+                app:layout_constraintEnd_toEndOf="@+id/tv_textColor"
+                app:layout_constraintStart_toEndOf="@+id/tv_textColor"
+                app:layout_constraintTop_toTopOf="@+id/tv_textColor" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        //card background privacy policy
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutPrivacyPolicy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/cardviewshape"
+            android:paddingVertical="10dp"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutColors">
+
+            <!--            <ImageView-->
+            <!--                android:id="@+id/img_rateApp"-->
+            <!--                android:layout_width="33dp"-->
+            <!--                android:layout_height="34dp"-->
+            <!--                android:padding="3dp"-->
+            <!--                android:src="@drawable/rateapp"-->
+            <!--                app:layout_constraintBottom_toBottomOf="@+id/tv_RateApp"-->
+            <!--                app:layout_constraintEnd_toStartOf="@+id/tv_RateApp"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="@+id/tv_RateApp" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/tv_RateApp"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginStart="50dp"-->
+            <!--                android:layout_marginEnd="16dp"-->
+            <!--                android:fontFamily="sans-serif"-->
+            <!--                android:gravity="left"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:text="Rate App"-->
+            <!--                android:textColor="@color/white"-->
+            <!--                android:textSize="18sp"-->
+            <!--                app:layout_constraintLeft_toLeftOf="parent"-->
+            <!--                app:layout_constraintRight_toRightOf="parent" />-->
+
+            <!--            <ImageView-->
+            <!--                android:id="@+id/arrowForward4"-->
+            <!--                android:layout_width="33dp"-->
+            <!--                android:layout_height="34dp"-->
+            <!--                android:layout_marginEnd="20dp"-->
+            <!--                android:padding="3dp"-->
+            <!--                android:src="@drawable/arrowforward"-->
+            <!--                app:layout_constraintBottom_toBottomOf="@+id/tv_RateApp"-->
+            <!--                app:layout_constraintEnd_toEndOf="@+id/tv_RateApp"-->
+            <!--                app:layout_constraintStart_toEndOf="@+id/tv_RateApp"-->
+            <!--                app:layout_constraintTop_toTopOf="@+id/tv_RateApp" />-->
+
+            <!--            <View-->
+            <!--                android:id="@+id/view2"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:layout_marginStart="60dp"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:background="@color/viewColor"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/tv_RateApp" />-->
+
+            // card 5
+
+            <!--            <ImageView-->
+            <!--                android:id="@+id/img_shareApp"-->
+            <!--                android:layout_width="33dp"-->
+            <!--                android:layout_height="34dp"-->
+            <!--                android:padding="3dp"-->
+            <!--                android:src="@drawable/shareapp"-->
+            <!--                app:layout_constraintBottom_toBottomOf="@+id/tv_ShareApp"-->
+            <!--                app:layout_constraintEnd_toStartOf="@+id/tv_ShareApp"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="@+id/tv_ShareApp" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/tv_ShareApp"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginStart="50dp"-->
+            <!--                android:layout_marginEnd="16dp"-->
+            <!--                android:drawablePadding="15dp"-->
+            <!--                android:fontFamily="sans-serif"-->
+            <!--                android:gravity="left"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:text="Share App"-->
+            <!--                android:textColor="@color/white"-->
+            <!--                android:textSize="18sp"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/view2" />-->
+
+            <!--            <ImageView-->
+            <!--                android:id="@+id/arrowForward5"-->
+            <!--                android:layout_width="33dp"-->
+            <!--                android:layout_height="34dp"-->
+            <!--                android:layout_marginEnd="20dp"-->
+            <!--                android:padding="3dp"-->
+            <!--                android:src="@drawable/arrowforward"-->
+            <!--                app:layout_constraintBottom_toBottomOf="@+id/tv_ShareApp"-->
+            <!--                app:layout_constraintEnd_toEndOf="@+id/tv_ShareApp"-->
+            <!--                app:layout_constraintStart_toEndOf="@+id/tv_ShareApp"-->
+            <!--                app:layout_constraintTop_toTopOf="@+id/tv_ShareApp" />-->
+
+            <!--            <View-->
+            <!--                android:id="@+id/view3"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:layout_marginStart="60dp"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:background="@color/viewColor"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/tv_ShareApp" />-->
+
+            // card 6
+
+            <!--            <ImageView-->
+            <!--                android:id="@+id/img_feedBack"-->
+            <!--                android:layout_width="33dp"-->
+            <!--                android:layout_height="34dp"-->
+            <!--                android:padding="3dp"-->
+            <!--                android:src="@drawable/ic_feedback"-->
+            <!--                app:layout_constraintBottom_toBottomOf="@+id/tv_feedBack"-->
+            <!--                app:layout_constraintEnd_toStartOf="@+id/tv_feedBack"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="@+id/tv_feedBack" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/tv_feedBack"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginStart="50dp"-->
+            <!--                android:layout_marginEnd="16dp"-->
+            <!--                android:drawablePadding="15dp"-->
+            <!--                android:fontFamily="sans-serif"-->
+            <!--                android:gravity="left"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:text="Feedback"-->
+            <!--                android:textColor="@color/white"-->
+            <!--                android:textSize="18sp"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/view3" />-->
+
+            <!--            <ImageView-->
+            <!--                android:id="@+id/arrowForward6"-->
+            <!--                android:layout_width="33dp"-->
+            <!--                android:layout_height="34dp"-->
+            <!--                android:layout_marginEnd="20dp"-->
+            <!--                android:padding="3dp"-->
+            <!--                android:src="@drawable/arrowforward"-->
+            <!--                app:layout_constraintBottom_toBottomOf="@+id/tv_feedBack"-->
+            <!--                app:layout_constraintEnd_toEndOf="@+id/tv_feedBack"-->
+            <!--                app:layout_constraintStart_toEndOf="@+id/tv_feedBack"-->
+            <!--                app:layout_constraintTop_toTopOf="@+id/tv_feedBack" />-->
+
+            <!--            <View-->
+            <!--                android:id="@+id/view4"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:layout_marginStart="60dp"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:background="@color/viewColor"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/tv_ShareApp" />-->
+
+            // card 7
+
+            <ImageView
+                android:id="@+id/img_privacyPolicy"
+                android:layout_width="33dp"
+                android:layout_height="34dp"
+                android:padding="3dp"
+                android:src="@drawable/ic_privacy"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_privacyPolicy"
+                app:layout_constraintEnd_toStartOf="@+id/tv_privacyPolicy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_privacyPolicy" />
+
+            <TextView
+                android:id="@+id/tv_privacyPolicy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:drawablePadding="15dp"
+                android:fontFamily="sans-serif"
+                android:gravity="left"
+                android:padding="10dp"
+                android:text="Privacy Policy"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/arrowForward7"
+                android:layout_width="33dp"
+                android:layout_height="34dp"
+                android:layout_marginEnd="20dp"
+                android:padding="3dp"
+                android:src="@drawable/arrowforward"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_privacyPolicy"
+                app:layout_constraintEnd_toEndOf="@+id/tv_privacyPolicy"
+                app:layout_constraintStart_toEndOf="@+id/tv_privacyPolicy"
+                app:layout_constraintTop_toTopOf="@+id/tv_privacyPolicy" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/adrelative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ChildConstraint">
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
