@@ -411,7 +411,7 @@
                 android:gravity="center"
                 android:src="@drawable/ic_sci_calcul"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/decimal"
+                app:layout_constraintEnd_toStartOf="@+id/zero"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -425,8 +425,8 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
-                app:layout_constraintEnd_toStartOf="@id/zero"
-                app:layout_constraintStart_toEndOf="@+id/scientificCal_Icon"
+                app:layout_constraintEnd_toStartOf="@id/equal"
+                app:layout_constraintStart_toEndOf="@+id/zero"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
@@ -440,8 +440,8 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
-                app:layout_constraintEnd_toStartOf="@id/equal"
-                app:layout_constraintStart_toEndOf="@id/decimal"
+                app:layout_constraintEnd_toStartOf="@id/decimal"
+                app:layout_constraintStart_toEndOf="@id/scientificCal_Icon"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
@@ -456,7 +456,7 @@
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/zero"
+                app:layout_constraintStart_toEndOf="@id/decimal"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 

@@ -61,6 +61,9 @@ class HistoryActivity : BaseActivity<ActivityHistoryBinding>() {
         // finally change the color
         window.statusBarColor = ContextCompat.getColor(this, R.color.black)
 
+
+        val historyModel: HistoryAdapterItem
+
 //        refreshAd()
 
         // views initialization
@@ -73,7 +76,9 @@ class HistoryActivity : BaseActivity<ActivityHistoryBinding>() {
         historyBannerLayout = findViewById(R.id.historyBannerLayout)
         prefUtil = PrefUtil(applicationContext)
         textViewColor = prefUtil!!.getInt("textColor", 0)
-        textViewAppbar!!.setTextColor(textViewColor!!)
+        if (prefUtil!!.getInt("textColor", 0) != 0) {
+            textViewAppbar!!.setTextColor(textViewColor!!)
+        }
 
 
         backgroundColor = prefUtil!!.getInt("BackgroundColor", 0)

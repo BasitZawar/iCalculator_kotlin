@@ -396,7 +396,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/fifthRow"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="80dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -405,13 +405,13 @@
             <ImageView
                 android:id="@+id/scientificCal_Icon"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:src="@drawable/ic_calculator"
+                android:src="@drawable/ic_sci_calcul"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/decimal"
+                app:layout_constraintEnd_toStartOf="@+id/zero"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -425,8 +425,8 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
-                app:layout_constraintEnd_toStartOf="@id/zero"
-                app:layout_constraintStart_toEndOf="@+id/scientificCal_Icon"
+                app:layout_constraintEnd_toStartOf="@id/equal"
+                app:layout_constraintStart_toEndOf="@+id/zero"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
@@ -440,8 +440,8 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
-                app:layout_constraintEnd_toStartOf="@id/equal"
-                app:layout_constraintStart_toEndOf="@id/decimal"
+                app:layout_constraintEnd_toStartOf="@id/decimal"
+                app:layout_constraintStart_toEndOf="@id/scientificCal_Icon"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
@@ -456,7 +456,7 @@
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/zero"
+                app:layout_constraintStart_toEndOf="@id/decimal"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
@@ -471,6 +471,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
 
 

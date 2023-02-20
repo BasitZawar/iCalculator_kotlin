@@ -533,7 +533,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun appExitAlertDialog() {
-
         //before inflating the custom alert dialog layout, we will get the current activity viewgroup
         val viewGroup: ViewGroup = this@MainActivity.findViewById(android.R.id.content)
 
