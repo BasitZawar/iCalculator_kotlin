@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnCreateContextMenuListener
 import android.view.ViewGroup
-import androidx.core.graphics.toColorInt
 import androidx.recyclerview.widget.RecyclerView
 import com.cyber.tarzan.calculator.databinding.HistoryItemBinding
 import com.cyber.tarzan.calculator.history.HistoryAdapterItem
@@ -18,7 +17,6 @@ class HistoryAdapter(
     var prefUtil: PrefUtil? = null,
     var textViewColor: Int? = null
 
-
 ) : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
@@ -28,7 +26,6 @@ class HistoryAdapter(
     }
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
-
         holder.bind(historyList[position])
     }
 

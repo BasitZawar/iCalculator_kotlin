@@ -16,6 +16,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.cyber.tarzan.calculator.R
 import com.cyber.tarzan.calculator.admob.AdIds
+import com.cyber.tarzan.calculator.admob.AdMobInterstitial
+import com.cyber.tarzan.calculator.admob.InterstitialClosedListener
+import com.cyber.tarzan.calculator.admob.InterstitialClosedListenerImplementer
 import com.cyber.tarzan.calculator.databinding.ActivitySettingBinding
 import com.cyber.tarzan.calculator.ui.history.HistoryActivity
 import com.cyber.tarzan.calculator.ui.main.MainActivity
@@ -122,8 +125,9 @@ class Setting_Activity : AppCompatActivity() {
             }
 
             layoutCard1.setOnClickListener {
-                val intent = Intent(applicationContext, HistoryActivity::class.java)
-                startActivity(intent)
+                showInterstitialAdHistory()
+//                val intent = Intent(applicationContext, HistoryActivity::class.java)
+//                startActivity(intent)
             }
 
             tvBackgroundColor.setOnClickListener {
@@ -350,5 +354,30 @@ class Setting_Activity : AppCompatActivity() {
         }
     }
 
+    //show admob interstitial ad
 
+    private fun showInterstitialAdHistory() {
+        Log.d("TAG", "InterstitialHistory ad shown")
+
+        if (AdMobInterstitial.isAlreadyLoaded) {
+            AdMobInterstitial.showInterstitial(this@Setting_Activity, false)
+            InterstitialClosedListenerImplementer.setOnInterstitialClosedMaster(object :
+                InterstitialClosedListener {
+                override fun onInterstitialClosed() {
+                    startActivity(Intent(this@Setting_Activity, HistoryActivity::class.java))
+
+                    Log.d("TAG", "onInterstitialClosed: move to next screen")
+                }
+
+                override fun onInterstitialFailedToShow() {
+                    startActivity(Intent(this@Setting_Activity, HistoryActivity::class.java))
+                    Log.d("TAG", "onInterstitialFailedToShow: move to next screen")
+                }
+            })
+        } else {
+            startActivity(Intent(this@Setting_Activity, HistoryActivity::class.java))
+            Log.d("TAG", "onCreate: move to next screen")
+        }
+
+    }
 }

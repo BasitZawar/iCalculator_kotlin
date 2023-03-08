@@ -13,14 +13,14 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.cyber.tarzan.calculator.R
-import com.cyber.tarzan.calculator.admob.AdIds
-import com.cyber.tarzan.calculator.admob.AdsManager
+import com.cyber.tarzan.calculator.admob.*
 import com.cyber.tarzan.calculator.database.model.toDomain
 import com.cyber.tarzan.calculator.databinding.ActivityHistoryBinding
 import com.cyber.tarzan.calculator.history.HistoryAdapterItem
 import com.cyber.tarzan.calculator.ui.base.BaseActivity
 import com.cyber.tarzan.calculator.ui.history.adapter.HistoryAdapter
 import com.cyber.tarzan.calculator.ui.history.viewmodel.HistoryViewModel
+import com.cyber.tarzan.calculator.ui.main.MainActivity
 import com.cyber.tarzan.calculator.ui.main.helper.removeNumberSeparator
 import com.cyber.tarzan.calculator.util.PrefUtil
 import com.cyber.tarzan.calculator.util.visible
@@ -202,6 +202,7 @@ class HistoryActivity : BaseActivity<ActivityHistoryBinding>() {
 
         builder.setPositiveButton(android.R.string.yes) { dialog, which ->
 
+
         }
 
         builder.setNegativeButton(android.R.string.no) { dialog, which ->
@@ -209,7 +210,6 @@ class HistoryActivity : BaseActivity<ActivityHistoryBinding>() {
         }
         builder.show()
     }
-
 
     private fun historyClearDialog() {
 
@@ -237,6 +237,7 @@ class HistoryActivity : BaseActivity<ActivityHistoryBinding>() {
 
         val tv_label_yes = dialogView.findViewById<TextView>(R.id.tv_label_yes)
         tv_label_yes.setOnClickListener {
+            showInterstitialAdSetting()
             viewModel.clearHistory()
             Toast.makeText(this, "History deleted successfully", Toast.LENGTH_SHORT).show()
             alertDialog.dismiss()
@@ -330,6 +331,31 @@ class HistoryActivity : BaseActivity<ActivityHistoryBinding>() {
                 }
             }
         }
+    }
 
+    private fun showInterstitialAdSetting() {
+
+        Log.d("TAG", "Interstitialsettings ad shown")
+
+        if (AdMobInterstitial.isAlreadyLoaded) {
+            AdMobInterstitial.showInterstitial(this@HistoryActivity, false)
+            InterstitialClosedListenerImplementer.setOnInterstitialClosedMaster(object :
+                InterstitialClosedListener {
+                override fun onInterstitialClosed() {
+//                    if (binding.historyIcon!!.isClickable)
+                    startActivity(Intent(this@HistoryActivity, MainActivity::class.java))
+
+                    Log.d("TAG", "onInterstitialClosed: move to next screen")
+                }
+
+                override fun onInterstitialFailedToShow() {
+                    startActivity(Intent(this@HistoryActivity, MainActivity::class.java))
+                    Log.d("TAG", "onInterstitialFailedToShow: move to next screen")
+                }
+            })
+        } else {
+            startActivity(Intent(this@HistoryActivity, MainActivity::class.java))
+            Log.d("TAG", "onCreate: move to next screen")
+        }
     }
 }
