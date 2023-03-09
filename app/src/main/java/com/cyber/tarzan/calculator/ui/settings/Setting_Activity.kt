@@ -357,21 +357,16 @@ class Setting_Activity : AppCompatActivity() {
     //show admob interstitial ad
 
     private fun showInterstitialAdHistory() {
-        Log.d("TAG", "InterstitialHistory ad shown")
-
         if (AdMobInterstitial.isAlreadyLoaded) {
             AdMobInterstitial.showInterstitial(this@Setting_Activity, false)
             InterstitialClosedListenerImplementer.setOnInterstitialClosedMaster(object :
                 InterstitialClosedListener {
                 override fun onInterstitialClosed() {
                     startActivity(Intent(this@Setting_Activity, HistoryActivity::class.java))
-
-                    Log.d("TAG", "onInterstitialClosed: move to next screen")
                 }
 
                 override fun onInterstitialFailedToShow() {
                     startActivity(Intent(this@Setting_Activity, HistoryActivity::class.java))
-                    Log.d("TAG", "onInterstitialFailedToShow: move to next screen")
                 }
             })
         } else {

@@ -93,20 +93,18 @@ class LauncherActivity : AppCompatActivity() {
     }
 
     private fun showInterstitialAd() {
-        Log.d("TAG", "InterstitialLauncher ad shown")
-
         if (AdMobInterstitial.isAlreadyLoaded) {
             AdMobInterstitial.showInterstitial(this@LauncherActivity, false)
             InterstitialClosedListenerImplementer.setOnInterstitialClosedMaster(object :
                 InterstitialClosedListener {
                 override fun onInterstitialClosed() {
                     startActivity(Intent(this@LauncherActivity, MainActivity::class.java))
-                    Log.d("TAG", "onInterstitialClosed: move to next screen")
+//                    Log.d("TAG", "onInterstitialClosed: move to next screen")
                 }
 
                 override fun onInterstitialFailedToShow() {
                     startActivity(Intent(this@LauncherActivity, MainActivity::class.java))
-                    Log.d("TAG", "onInterstitialFailedToShow: move to next screen")
+//                    Log.d("TAG", "onInterstitialFailedToShow: move to next screen")
                 }
             })
         } else {

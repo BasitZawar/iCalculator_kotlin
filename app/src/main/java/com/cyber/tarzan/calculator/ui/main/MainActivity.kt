@@ -919,24 +919,17 @@ class MainActivity : AppCompatActivity() {
 
 
     //show admob interstitial ad
-
     private fun showInterstitialAdHistory() {
-        Log.d("TAG", "InterstitialHistory ad shown")
-
-
         if (AdMobInterstitial.isAlreadyLoaded) {
             AdMobInterstitial.showInterstitial(this@MainActivity, false)
             InterstitialClosedListenerImplementer.setOnInterstitialClosedMaster(object :
                 InterstitialClosedListener {
                 override fun onInterstitialClosed() {
                     startActivity(Intent(this@MainActivity, HistoryActivity::class.java))
-
-                    Log.d("TAG", "onInterstitialClosed: move to next screen")
                 }
 
                 override fun onInterstitialFailedToShow() {
                     startActivity(Intent(this@MainActivity, HistoryActivity::class.java))
-                    Log.d("TAG", "onInterstitialFailedToShow: move to next screen")
                 }
             })
         } else {
@@ -947,9 +940,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showInterstitialAdSetting() {
-
-        Log.d("TAG", "Interstitialsettings ad shown")
-
         if (AdMobInterstitial.isAlreadyLoaded) {
             AdMobInterstitial.showInterstitial(this@MainActivity, false)
             InterstitialClosedListenerImplementer.setOnInterstitialClosedMaster(object :
@@ -957,13 +947,10 @@ class MainActivity : AppCompatActivity() {
                 override fun onInterstitialClosed() {
                     if (binding.historyIcon!!.isClickable)
                         startActivity(Intent(this@MainActivity, Setting_Activity::class.java))
-
-                    Log.d("TAG", "onInterstitialClosed: move to next screen")
                 }
 
                 override fun onInterstitialFailedToShow() {
                     startActivity(Intent(this@MainActivity, Setting_Activity::class.java))
-                    Log.d("TAG", "onInterstitialFailedToShow: move to next screen")
                 }
             })
         } else {

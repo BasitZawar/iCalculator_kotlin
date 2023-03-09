@@ -334,9 +334,6 @@ class HistoryActivity : BaseActivity<ActivityHistoryBinding>() {
     }
 
     private fun showInterstitialAdSetting() {
-
-        Log.d("TAG", "Interstitialsettings ad shown")
-
         if (AdMobInterstitial.isAlreadyLoaded) {
             AdMobInterstitial.showInterstitial(this@HistoryActivity, false)
             InterstitialClosedListenerImplementer.setOnInterstitialClosedMaster(object :
@@ -344,13 +341,10 @@ class HistoryActivity : BaseActivity<ActivityHistoryBinding>() {
                 override fun onInterstitialClosed() {
 //                    if (binding.historyIcon!!.isClickable)
                     startActivity(Intent(this@HistoryActivity, MainActivity::class.java))
-
-                    Log.d("TAG", "onInterstitialClosed: move to next screen")
                 }
 
                 override fun onInterstitialFailedToShow() {
                     startActivity(Intent(this@HistoryActivity, MainActivity::class.java))
-                    Log.d("TAG", "onInterstitialFailedToShow: move to next screen")
                 }
             })
         } else {

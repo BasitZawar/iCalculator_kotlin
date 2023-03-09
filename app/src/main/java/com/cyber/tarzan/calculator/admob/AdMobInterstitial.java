@@ -27,10 +27,7 @@ public class AdMobInterstitial {
         interstitial_id = your_interstitial_id;
 
         if (!isAlreadyLoaded) {
-
-            Log.d(logTag, "Interstitial Load Request Sent.");
             AdRequest adRequest_interstitial = new AdRequest.Builder().build();
-
             InterstitialAd.load(mContext, your_interstitial_id, adRequest_interstitial,
                     new InterstitialAdLoadCallback() {
                         @Override
@@ -38,7 +35,7 @@ public class AdMobInterstitial {
                             // The mInterstitialAd reference will be null until
                             // an ad is loaded.
                             mInterstitialAd = interstitialAd;
-                            Log.d(logTag, "Insterstitial Loaded.");
+                            Log.d(logTag, "Interstitial Loaded.");
                             isAlreadyLoaded = true;
                         }
 
@@ -53,7 +50,6 @@ public class AdMobInterstitial {
         } else {
             Log.d(logTag, "Interstitial Already Loaded. Request not Sent.");
         }
-
     }
 
 
