@@ -936,7 +936,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, HistoryActivity::class.java))
             Log.d("TAG", "onCreate: move to next screen")
         }
-
     }
 
     private fun showInterstitialAdSetting() {
