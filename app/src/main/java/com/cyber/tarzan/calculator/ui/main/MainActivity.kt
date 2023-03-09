@@ -5,6 +5,7 @@ import android.content.ActivityNotFoundException
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.content.res.Configuration.ORIENTATION_LANDSCAPE
 import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
@@ -192,6 +193,23 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        }
 
+        if (resources.configuration.orientation == ORIENTATION_LANDSCAPE) {
+        binding.AC?.setOnClickListener(buttonClick)
+        binding.percent?.setOnClickListener(buttonClick)
+        binding.factorial?.setOnClickListener(buttonClick)
+        binding.divide?.setOnClickListener(buttonClick)
+        binding.seven?.setOnClickListener(buttonClick)
+        binding.eight?.setOnClickListener(buttonClick)
+        binding.nine?.setOnClickListener(buttonClick)
+        binding.multiply?.setOnClickListener(buttonClick)
+        binding.four?.setOnClickListener(buttonClick)
+        binding.five?.setOnClickListener(buttonClick)
+        binding.six?.setOnClickListener(buttonClick)
+        binding.minus?.setOnClickListener(buttonClick)
+        binding.one?.setOnClickListener(buttonClick)
+        binding.two?.setOnClickListener(buttonClick)
+        binding.three?.setOnClickListener(buttonClick)
+        binding.plus?.setOnClickListener(buttonClick)}
 
         // delete button
         deleteButton?.setOnClickListener {
@@ -322,59 +340,62 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setClickListener() {
+
+
+
         //number Pad
         with(binding.numPad) {
             //first row
-            percent?.setOnClickListener(buttonClick)
-            AC?.setOnClickListener {
+            this?.percent?.setOnClickListener(buttonClick)
+            this?.AC?.setOnClickListener {
                 expression?.text = null
                 result?.text = null
             }
-            factorial?.setOnClickListener(buttonClick)
+            this?.factorial?.setOnClickListener(buttonClick)
 //            openBracket.setOnClickListener(buttonClick)
 //            closeBracket?.setOnClickListener(buttonClick)
             //second row
-            seven?.setOnClickListener(buttonClick)
-            eight?.setOnClickListener(buttonClick)
-            nine?.setOnClickListener(buttonClick)
-            divide?.setOnClickListener(buttonClick)
+            this?.seven?.setOnClickListener(buttonClick)
+            this?.eight?.setOnClickListener(buttonClick)
+            this?.nine?.setOnClickListener(buttonClick)
+            this?.divide?.setOnClickListener(buttonClick)
             //third row
-            four?.setOnClickListener(buttonClick)
-            five?.setOnClickListener(buttonClick)
-            six?.setOnClickListener(buttonClick)
-            multiply?.setOnClickListener(buttonClick)
+            this?.four?.setOnClickListener(buttonClick)
+            this?.five?.setOnClickListener(buttonClick)
+            this?.six?.setOnClickListener(buttonClick)
+            this?.multiply?.setOnClickListener(buttonClick)
             //fourth row
-            one?.setOnClickListener(buttonClick)
-            two?.setOnClickListener(buttonClick)
-            three?.setOnClickListener(buttonClick)
-            plus?.setOnClickListener(buttonClick)
+            this?.one?.setOnClickListener(buttonClick)
+            this?.two?.setOnClickListener(buttonClick)
+            this?.three?.setOnClickListener(buttonClick)
+            this?.plus?.setOnClickListener(buttonClick)
             //fifth row
-            decimal?.setOnClickListener(buttonClick)
-            zero?.setOnClickListener(buttonClick)
-            minus?.setOnClickListener(buttonClick)
+            this?.decimal?.setOnClickListener(buttonClick)
+            this?.zero?.setOnClickListener(buttonClick)
+            this?.minus?.setOnClickListener(buttonClick)
         }
         //scientific Pad
         with(binding.scientificPad) {
             //first row
-            sin.setOnClickListener(buttonClick)
-            cos.setOnClickListener(buttonClick)
-            tan.setOnClickListener(buttonClick)
-            openBracket?.setOnClickListener(buttonClick)
-            //second row
-            asin.setOnClickListener(buttonClick)
-            acos.setOnClickListener(buttonClick)
-            atan.setOnClickListener(buttonClick)
-            closeBracket?.setOnClickListener(buttonClick)
-            //third row
-            exponential.setOnClickListener(buttonClick)
-            log.setOnClickListener(buttonClick)
-            naturalLog.setOnClickListener(buttonClick)
-            power.setOnClickListener(buttonClick)
-            //fourth row
-            factorial.setOnClickListener(buttonClick)
-            squareRoot.setOnClickListener(buttonClick)
-            cubeRoot.setOnClickListener(buttonClick)
-            pi.setOnClickListener(buttonClick)
+//            sin.setOnClickListener(buttonClick)
+//            cos.setOnClickListener(buttonClick)
+//            tan.setOnClickListener(buttonClick)
+//            openBracket?.setOnClickListener(buttonClick)
+//            //second row
+//            asin.setOnClickListener(buttonClick)
+//            acos.setOnClickListener(buttonClick)
+//            atan.setOnClickListener(buttonClick)
+//            closeBracket?.setOnClickListener(buttonClick)
+//            //third row
+//            exponential.setOnClickListener(buttonClick)
+//            log.setOnClickListener(buttonClick)
+//            naturalLog.setOnClickListener(buttonClick)
+//            power.setOnClickListener(buttonClick)
+//            //fourth row
+//            factorial.setOnClickListener(buttonClick)
+//            squareRoot.setOnClickListener(buttonClick)
+//            cubeRoot.setOnClickListener(buttonClick)
+//            pi.setOnClickListener(buttonClick)
         }
 
         //delete onClick

@@ -59,20 +59,35 @@
                 android:layout_height="0dp"
                 android:orientation="horizontal">
 
-                <include
-                    android:id="@+id/scientificPad"
-                    layout="@layout/scientific_pad"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+<!--                <include-->
+<!--                    android:id="@+id/scientificPad"-->
+<!--                    layout="@layout/scientific_pad"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="1" />-->
 
-                <include
-                    android:id="@+id/numPad"
-                    layout="@layout/num_pad"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                   />
+<!--                <include-->
+<!--                    android:id="@+id/numPad"-->
+<!--                    layout="@layout/num_pad"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="1"-->
+<!--                   />-->
+
+<!--                <com.google.android.material.button.MaterialButton-->
+<!--                    android:id="@+id/five1"-->
+<!--                    style="@style/Widget.CalculatorPlus.NumPad.Primary"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="@drawable/digit_button_shape"-->
+<!--                    android:text="5"-->
+<!--                    android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    app:backgroundTint="@null"-->
+<!--                    app:layout_constraintEnd_toStartOf="@id/six"-->
+<!--                    app:layout_constraintStart_toEndOf="@id/four"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    tools:ignore="HardcodedText" />-->
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
