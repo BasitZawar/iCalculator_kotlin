@@ -125,9 +125,9 @@ class Setting_Activity : AppCompatActivity() {
             }
 
             layoutCard1.setOnClickListener {
-                showInterstitialAdHistory()
-//                val intent = Intent(applicationContext, HistoryActivity::class.java)
-//                startActivity(intent)
+//                showInterstitialAdHistory()
+                val intent = Intent(applicationContext, HistoryActivity::class.java)
+                startActivity(intent)
             }
 
             tvBackgroundColor.setOnClickListener {

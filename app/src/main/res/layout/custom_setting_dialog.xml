@@ -149,16 +149,16 @@
                 android:layout_width="33dp"
                 android:layout_height="34dp"
                 android:padding="3dp"
-                android:src="@drawable/ic_feedback" />
+                android:src="@drawable/ic_more_app" />
 
             <TextView
-                android:id="@+id/tv_feedBack"
+                android:id="@+id/tv_MoreApp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="5dp"
                 android:gravity="left"
-                android:text="Feedback"
+                android:text="More Apps"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 app:layout_constraintVertical_bias="1.0"

@@ -131,7 +131,7 @@ class MainActivity : AppCompatActivity() {
         tv_More = findViewById(R.id.tv_More)
         tv_RateApp = findViewById(R.id.tv_RateApp)
         tv_ShareApp = findViewById(R.id.tv_ShareApp)
-        tv_feedBack = findViewById(R.id.tv_feedBack)
+        tv_feedBack = findViewById(R.id.tv_MoreApp)
 
 //        adView = findViewById(R.id.mainScreenBannerLayout)
 
@@ -1048,7 +1048,7 @@ class MainActivity : AppCompatActivity() {
             tv_rate.setTextColor(textColorMainActivity!!)
             val tv_share = dialogView.findViewById<TextView>(R.id.tv_ShareApp)
             tv_share.setTextColor(textColorMainActivity!!)
-            val tv_feedback = dialogView.findViewById<TextView>(R.id.tv_feedBack)
+            val tv_feedback = dialogView.findViewById<TextView>(R.id.tv_MoreApp)
             tv_feedback.setTextColor(textColorMainActivity!!)
         } else {
         }
@@ -1066,12 +1066,25 @@ class MainActivity : AppCompatActivity() {
         btn_share.setOnClickListener {
             shareApp()
         }
-        val btn_feedback = dialogView.findViewById<TextView>(R.id.tv_feedBack)
-        btn_feedback.setOnClickListener {
-            feedback()
+        val btn_moreApps = dialogView.findViewById<TextView>(R.id.tv_MoreApp)
+        btn_moreApps.setOnClickListener {
+//            feedback()
+            moreApps()
         }
     }
 
+    fun moreApps() {
+        try {
+            val url =
+                "https://play.google.com/store/apps/dev?id=6148212530509697995&hl=en-IN" +
+                        "zQxMjk5NzA0NTI0MjQQCBgDEhkKEzQ4MDEyMzQxMjk5NzA0NTI0MjQQCBgDGAA%3D:S:ANO1ljJ5IaI&gsr=" +
+                        "CjuKAzgKGQoTNDgwMTIzNDEyOTk3MDQ1MjQyNBAIGAMSGQoTNDgwMTIzNDEyOTk3MDQ1MjQyNBAIGAMYAA%3D%3D:S:ANO1ljJ56NU"
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            startActivity(browserIntent)
+        } catch (e: java.lang.Exception) {
+            // Catch Exception here
+        }
+    }
 
     //Feedback
     private fun feedback() {
