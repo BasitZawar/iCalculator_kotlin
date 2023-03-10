@@ -113,7 +113,6 @@ class MainActivity : AppCompatActivity() {
         setupObservers()
         setClickListener()
 
-
         deleteButton = findViewById(R.id.delete)
         historyIcon = findViewById(R.id.history_icon)
         setting = findViewById(R.id.setting)
@@ -194,22 +193,23 @@ class MainActivity : AppCompatActivity() {
 //        }
 
         if (resources.configuration.orientation == ORIENTATION_LANDSCAPE) {
-        binding.AC?.setOnClickListener(buttonClick)
-        binding.percent?.setOnClickListener(buttonClick)
-        binding.factorial?.setOnClickListener(buttonClick)
-        binding.divide?.setOnClickListener(buttonClick)
-        binding.seven?.setOnClickListener(buttonClick)
-        binding.eight?.setOnClickListener(buttonClick)
-        binding.nine?.setOnClickListener(buttonClick)
-        binding.multiply?.setOnClickListener(buttonClick)
-        binding.four?.setOnClickListener(buttonClick)
-        binding.five?.setOnClickListener(buttonClick)
-        binding.six?.setOnClickListener(buttonClick)
-        binding.minus?.setOnClickListener(buttonClick)
-        binding.one?.setOnClickListener(buttonClick)
-        binding.two?.setOnClickListener(buttonClick)
-        binding.three?.setOnClickListener(buttonClick)
-        binding.plus?.setOnClickListener(buttonClick)}
+            binding.AC?.setOnClickListener(buttonClick)
+            binding.percent?.setOnClickListener(buttonClick)
+            binding.factorial?.setOnClickListener(buttonClick)
+            binding.divide?.setOnClickListener(buttonClick)
+            binding.seven?.setOnClickListener(buttonClick)
+            binding.eight?.setOnClickListener(buttonClick)
+            binding.nine?.setOnClickListener(buttonClick)
+            binding.multiply?.setOnClickListener(buttonClick)
+            binding.four?.setOnClickListener(buttonClick)
+            binding.five?.setOnClickListener(buttonClick)
+            binding.six?.setOnClickListener(buttonClick)
+            binding.minus?.setOnClickListener(buttonClick)
+            binding.one?.setOnClickListener(buttonClick)
+            binding.two?.setOnClickListener(buttonClick)
+            binding.three?.setOnClickListener(buttonClick)
+            binding.plus?.setOnClickListener(buttonClick)
+        }
 
         // delete button
         deleteButton?.setOnClickListener {
@@ -342,7 +342,6 @@ class MainActivity : AppCompatActivity() {
     private fun setClickListener() {
 
 
-
         //number Pad
         with(binding.numPad) {
             //first row
@@ -377,25 +376,25 @@ class MainActivity : AppCompatActivity() {
         //scientific Pad
         with(binding.scientificPad) {
             //first row
-//            sin.setOnClickListener(buttonClick)
-//            cos.setOnClickListener(buttonClick)
-//            tan.setOnClickListener(buttonClick)
-//            openBracket?.setOnClickListener(buttonClick)
+            binding.sin?.setOnClickListener(buttonClick)
+            binding.cos?.setOnClickListener(buttonClick)
+            binding.tan?.setOnClickListener(buttonClick)
+            binding.openBracket?.setOnClickListener(buttonClick)
 //            //second row
 //            asin.setOnClickListener(buttonClick)
 //            acos.setOnClickListener(buttonClick)
 //            atan.setOnClickListener(buttonClick)
-//            closeBracket?.setOnClickListener(buttonClick)
+            binding.closeBracket?.setOnClickListener(buttonClick)
 //            //third row
-//            exponential.setOnClickListener(buttonClick)
-//            log.setOnClickListener(buttonClick)
-//            naturalLog.setOnClickListener(buttonClick)
-//            power.setOnClickListener(buttonClick)
+            binding.exponential?.setOnClickListener(buttonClick)
+            binding.log?.setOnClickListener(buttonClick)
+            binding.naturalLog?.setOnClickListener(buttonClick)
+            binding.power?.setOnClickListener(buttonClick)
 //            //fourth row
 //            factorial.setOnClickListener(buttonClick)
-//            squareRoot.setOnClickListener(buttonClick)
-//            cubeRoot.setOnClickListener(buttonClick)
-//            pi.setOnClickListener(buttonClick)
+            binding.squareRoot?.setOnClickListener(buttonClick)
+            binding.cubeRoot?.setOnClickListener(buttonClick)
+            binding.pi?.setOnClickListener(buttonClick)
         }
 
         //delete onClick
