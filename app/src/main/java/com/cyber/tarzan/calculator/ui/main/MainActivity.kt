@@ -48,22 +48,24 @@ import petrov.kristiyan.colorpicker.BuildConfig
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
     val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     private var nativeAd: NativeAd? = null
     private var mAdView: AdView? = null
-
     private val viewModel: MainViewModel by viewModels()
     private var mCurrentAnimator: Animator? = null
     private var deleteButton: ImageButton? = null
     private var historyIcon: ImageView? = null
     private var setting: ImageView? = null
     private var scientificCalculatorIcon: ImageView? = null
+    private var btnBack: Button? = null
     private var LinearLayout_icons: ConstraintLayout? = null
     private var portraitNumPad: LinearLayout? = null
     private var activity_main: ConstraintLayout? = null
     private var calculatorPadViewPager: ConstraintLayout? = null
     private var mainScreenBannerLayout: LinearLayout? = null
+    private var lay_calIcon: LinearLayout? = null
     private var expression: CalculatorEditText? = null
     private var ScrollViewLandScape: ScrollView? = null
     private var landScapeLinearLayout: LinearLayout? = null
@@ -117,11 +119,13 @@ class MainActivity : AppCompatActivity() {
         historyIcon = findViewById(R.id.history_icon)
         setting = findViewById(R.id.setting)
         scientificCalculatorIcon = findViewById(R.id.scientificCal_Icon)
+        btnBack = findViewById(R.id.btnBack)
         expression = findViewById(R.id.expression)
         LinearLayout_icons = findViewById(R.id.LinearLayout_icons)
         mainScreenBannerLayout = findViewById(R.id.mainScreenBannerLayout)
+        lay_calIcon = findViewById(R.id.lay_calIcon)
         portraitNumPad = findViewById(R.id.portraitNumPad)
-        landScapeLinearLayout = findViewById(R.id.landScapeLinearLayout)
+        landScapeLinearLayout = findViewById(R.id.linearLayoutLandScape)
         ScrollViewLandScape = findViewById(R.id.ScrollViewLandScape)
         calculatorPadViewPager = findViewById(R.id.calculatorPadViewPager)
         activity_main = findViewById(R.id.activity_main)
@@ -193,10 +197,10 @@ class MainActivity : AppCompatActivity() {
 //        }
 
         if (resources.configuration.orientation == ORIENTATION_LANDSCAPE) {
-            binding.AC?.setOnClickListener(buttonClick)
             binding.percent?.setOnClickListener(buttonClick)
             binding.factorial?.setOnClickListener(buttonClick)
             binding.divide?.setOnClickListener(buttonClick)
+            binding.decimal?.setOnClickListener(buttonClick)
             binding.seven?.setOnClickListener(buttonClick)
             binding.eight?.setOnClickListener(buttonClick)
             binding.nine?.setOnClickListener(buttonClick)
@@ -209,6 +213,49 @@ class MainActivity : AppCompatActivity() {
             binding.two?.setOnClickListener(buttonClick)
             binding.three?.setOnClickListener(buttonClick)
             binding.plus?.setOnClickListener(buttonClick)
+            binding.AC?.setOnClickListener {
+                expression?.text = null
+                result?.text = null
+            }
+            binding.resultPad.btnBack?.setOnClickListener {
+                if (resources.configuration.orientation == ORIENTATION_PORTRAIT) {
+                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE;
+                } else {
+                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                }
+            }
+            binding.equal?.setOnClickListener {
+                it.isHapticFeedbackEnabled = true
+                it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+                val expression = removeNumberSeparator(getExpression())
+                val result = getResult()
+                if (expression.isNotEmpty()) {
+                    if (result.isEmpty() || !removeNumberSeparator(result).isNumber()) {
+                        val shake = AnimationUtils.loadAnimation(this, R.anim.shake)
+                        getResultEditText().setTextColor(getResultTextColor(true))
+                        val errorStringId = viewModel.error.value ?: R.string.invalid
+                        if (errorStringId == -1) {
+                            setResult("")
+                        } else {
+                            setResult(getString(errorStringId))
+                            getResultEditText().startAnimation(shake)
+                            isHistoryAvailable = false
+                        }
+
+                    } else {
+                        isHistoryAvailable = true
+                        val balancedExpression = viewModel.getCalculatedExpression()
+                        val history = History(
+                            expression = balancedExpression,
+                            result = result,
+                            date = System.currentTimeMillis()
+                        )
+                        viewModel.insertHistory(history)
+                        viewModel.isPrevResult = true
+                        setExpressionAfterEqual(result)
+                    }
+                }
+            }
         }
 
         // delete button
@@ -254,7 +301,6 @@ class MainActivity : AppCompatActivity() {
 
         // scientific calculator icon to change orientation
         scientificCalculatorIcon?.setOnClickListener {
-
             if (resources.configuration.orientation == ORIENTATION_PORTRAIT) {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE;
             } else {
@@ -391,7 +437,7 @@ class MainActivity : AppCompatActivity() {
             binding.naturalLog?.setOnClickListener(buttonClick)
             binding.power?.setOnClickListener(buttonClick)
 //            //fourth row
-//            factorial.setOnClickListener(buttonClick)
+            binding.factorial?.setOnClickListener(buttonClick)
             binding.squareRoot?.setOnClickListener(buttonClick)
             binding.cubeRoot?.setOnClickListener(buttonClick)
             binding.pi?.setOnClickListener(buttonClick)
@@ -898,20 +944,19 @@ class MainActivity : AppCompatActivity() {
 
 
         // background color
-
         constraintlayout1 = prefUtil!!.getInt("BackgroundColor", 0)
         if (prefUtil!!.getInt("BackgroundColor", 0) == 0) {
         } else {
             activity_main!!.setBackgroundColor(constraintlayout1!!)
             expression!!.setBackgroundColor(constraintlayout1!!)
             result!!.setBackgroundColor(constraintlayout1!!)
-            portraitNumPad!!.setBackgroundColor(constraintlayout1!!)
             if (resources.configuration.orientation == ORIENTATION_PORTRAIT) {
-                LinearLayout_icons!!.setBackgroundColor(constraintlayout1!!)
-                mainScreenBannerLayout!!.setBackgroundColor(constraintlayout1!!)
+                portraitNumPad!!.setBackgroundColor(constraintlayout1!!)
+
             } else {
-                landScapeLinearLayout!!.setBackgroundColor(constraintlayout1!!)
-                ScrollViewLandScape!!.setBackgroundColor(constraintlayout1!!)
+                binding.resultPad.layCalIcon!!.setBackgroundColor(constraintlayout1!!)
+//                landScapeLinearLayout!!.setBackgroundColor(constraintlayout1!!)
+//                ScrollViewLandScape!!.setBackgroundColor(constraintlayout1!!)
             }
         }
 

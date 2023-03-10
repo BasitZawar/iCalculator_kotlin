@@ -19,8 +19,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayoutLandScape"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:gravity="center"
         android:orientation="vertical"
@@ -34,12 +34,11 @@
 
         <LinearLayout
             android:id="@+id/firstRow"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
             android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="4"
+            android:weightSum="8"
             app:layout_constraintBottom_toTopOf="@id/secondRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -92,10 +91,10 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/openBracket"
                 android:layout_width="75dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="3dp"
                 android:layout_weight="1"
-                android:background="@drawable/sci_calcu_shape"
+                android:background="@drawable/other_buttons"
                 android:text="("
                 android:textColor="@color/white"
                 app:backgroundTint="@null" />
@@ -165,9 +164,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/secondRow"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:paddingVertical="3dp"
             app:layout_constraintBottom_toTopOf="@id/thirdRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -185,8 +184,10 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/cos"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/cos"
@@ -199,8 +200,10 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tan"
-                app:layout_constraintStart_toEndOf="@+id/sin" />
+                app:layout_constraintStart_toEndOf="@+id/sin"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/tan"
@@ -213,8 +216,10 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/closeBracket"
-                app:layout_constraintStart_toEndOf="@+id/cos" />
+                app:layout_constraintStart_toEndOf="@+id/cos"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/closeBracket"
@@ -226,8 +231,10 @@
                 android:text=")"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/four"
-                app:layout_constraintStart_toEndOf="@+id/tan" />
+                app:layout_constraintStart_toEndOf="@+id/tan"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/four"
@@ -239,6 +246,7 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/five"
                 app:layout_constraintStart_toEndOf="@+id/closeBracket"
                 app:layout_constraintTop_toTopOf="parent"
@@ -254,6 +262,7 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/six"
                 app:layout_constraintStart_toEndOf="@id/four"
                 app:layout_constraintTop_toTopOf="parent"
@@ -269,6 +278,7 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/multiply"
                 app:layout_constraintStart_toEndOf="@id/five"
                 app:layout_constraintTop_toTopOf="parent"
@@ -284,19 +294,21 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline5"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/six"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         // row 3
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/thirdRow"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:paddingVertical="3dp"
             app:layout_constraintBottom_toTopOf="@id/fourthRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -313,8 +325,10 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/log"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/log"
@@ -327,8 +341,10 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/naturalLog"
-                app:layout_constraintStart_toEndOf="@+id/exponential" />
+                app:layout_constraintStart_toEndOf="@+id/exponential"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/naturalLog"
@@ -341,8 +357,10 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/pi"
-                app:layout_constraintStart_toEndOf="@+id/log" />
+                app:layout_constraintStart_toEndOf="@+id/log"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/pi"
@@ -353,8 +371,10 @@
                 android:text="\u03C0"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/one"
-                app:layout_constraintStart_toEndOf="@+id/naturalLog" />
+                app:layout_constraintStart_toEndOf="@+id/naturalLog"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/one"
@@ -366,6 +386,7 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/two"
                 app:layout_constraintStart_toEndOf="@+id/pi"
                 app:layout_constraintTop_toTopOf="parent"
@@ -381,6 +402,7 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/three"
                 app:layout_constraintStart_toEndOf="@id/one"
                 app:layout_constraintTop_toTopOf="parent"
@@ -396,6 +418,7 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/minus"
                 app:layout_constraintStart_toEndOf="@id/two"
                 app:layout_constraintTop_toTopOf="parent"
@@ -412,7 +435,9 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline5"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/three"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
@@ -421,15 +446,13 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:paddingVertical="3dp"
-            android:weightSum="8">
+            android:layout_height="50dp"
+            android:paddingVertical="3dp">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/squareRoot"
                 android:layout_width="75dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:layout_weight="1"
                 android:background="@drawable/sci_calcu_shape"
@@ -437,8 +460,10 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/cubeRoot"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/cubeRoot"
@@ -451,7 +476,10 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
-                app:layout_constraintStart_toEndOf="@+id/squareRoot" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/power"
+                app:layout_constraintStart_toEndOf="@+id/squareRoot"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/power"
@@ -464,7 +492,10 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
-                app:layout_constraintStart_toEndOf="@+id/cubeRoot" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/scientificCal_Icon"
+                app:layout_constraintStart_toEndOf="@+id/cubeRoot"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/scientificCal_Icon"
@@ -476,19 +507,25 @@
                 android:text="sci"
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 app:backgroundTint="@null"
-                app:layout_constraintStart_toEndOf="@+id/power" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/zero"
+                app:layout_constraintStart_toEndOf="@+id/power"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/zero"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:layout_weight="1"
                 android:background="@drawable/digit_button_shape"
                 android:text="0"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
-                app:layout_constraintStart_toEndOf="@+id/scientificCal_Icon" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/decimal"
+                app:layout_constraintStart_toEndOf="@+id/scientificCal_Icon"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/decimal"
@@ -500,19 +537,26 @@
                 android:text="."
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
-                app:layout_constraintStart_toEndOf="@+id/zero" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/equal"
+                app:layout_constraintStart_toEndOf="@+id/zero"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/equal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="3dp"
-                android:layout_weight="3"
                 android:background="@drawable/digit_button_shape"
                 android:text="="
+                android:gravity="center"
                 android:textColor="@color/white"
+                android:textSize="30dp"
                 app:backgroundTint="@null"
-                app:layout_constraintStart_toEndOf="@+id/decimal" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/plus"
+                app:layout_constraintStart_toEndOf="@+id/decimal"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/plus"
@@ -523,7 +567,10 @@
                 android:background="@drawable/operator_button_shape"
                 android:text="+"
                 app:backgroundTint="@null"
-                app:layout_constraintStart_toEndOf="@+id/equal" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/equal"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!--                <include-->
