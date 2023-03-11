@@ -63,6 +63,7 @@ class MainActivity : AppCompatActivity() {
     private var LinearLayout_icons: ConstraintLayout? = null
     private var portraitNumPad: LinearLayout? = null
     private var resultPad_land: LinearLayout? = null
+    private var resultPad_portrait: LinearLayout? = null
     private var activity_main: ConstraintLayout? = null
     private var calculatorPadViewPager: ConstraintLayout? = null
     private var mainScreenBannerLayout: LinearLayout? = null
@@ -127,6 +128,7 @@ class MainActivity : AppCompatActivity() {
         lay_calIcon = findViewById(R.id.lay_calIcon)
         portraitNumPad = findViewById(R.id.portraitNumPad)
         resultPad_land = findViewById(R.id.resultPad_land)
+        resultPad_portrait = findViewById(R.id.resultPad_portrait)
         landScapeLinearLayout = findViewById(R.id.linearLayoutLandScape)
         ScrollViewLandScape = findViewById(R.id.ScrollViewLandScape)
         calculatorPadViewPager = findViewById(R.id.calculatorPadViewPager)
@@ -965,6 +967,7 @@ class MainActivity : AppCompatActivity() {
             activity_main!!.setBackgroundColor(constraintlayout1!!)
             expression!!.setBackgroundColor(constraintlayout1!!)
             result!!.setBackgroundColor(constraintlayout1!!)
+            resultPad_portrait!!.setBackgroundColor(constraintlayout1!!)
             if (resources.configuration.orientation == ORIENTATION_PORTRAIT) {
                 portraitNumPad!!.setBackgroundColor(constraintlayout1!!)
 

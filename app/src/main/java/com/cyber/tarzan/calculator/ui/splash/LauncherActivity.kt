@@ -2,6 +2,7 @@ package com.cyber.tarzan.calculator.ui.splash
 
 import android.content.Intent
 import android.content.IntentSender
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -25,6 +26,7 @@ import com.cyber.tarzan.calculator.admob.InterstitialClosedListener
 import com.cyber.tarzan.calculator.admob.InterstitialClosedListenerImplementer
 import com.cyber.tarzan.calculator.databinding.ActivityLauncherBinding
 import com.cyber.tarzan.calculator.ui.main.MainActivity
+import com.cyber.tarzan.calculator.util.InfoUtil
 import com.cyber.tarzan.calculator.util.VerificationCheck.playStoreAppVerification
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.nativead.MediaView
@@ -52,6 +54,13 @@ class LauncherActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLauncherBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        binding.tvPrivacyPolicy.setOnClickListener {
+            privacyPolicy()
+            InfoUtil(this).privacy()
+
+        }
 
 // inAppUpdate
         checkForAppUpdate()
@@ -277,5 +286,13 @@ class LauncherActivity : AppCompatActivity() {
         if (appUpdateManager != null && installStateUpdatedListener != null) appUpdateManager!!.unregisterListener(
             installStateUpdatedListener!!
         )
+    }
+
+    private fun privacyPolicy() {
+        val url =
+            "https://www.niamtechnologies.com/privacy"
+        val i = Intent(Intent.ACTION_VIEW)
+        i.data = Uri.parse(url)
+        startActivity(i)
     }
 }
