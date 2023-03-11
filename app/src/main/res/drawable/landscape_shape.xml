@@ -1,0 +1,17 @@
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/btn_digits" />
+    <corners android:radius="20dp" />
+</shape>
+
+<!--<shape xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:innerRadius="0dp"-->
+<!--    android:shape="oval"-->
+<!--    android:thicknessRatio="3"-->
+<!--    android:useLevel="false" >-->
+<!--    <solid android:color="@color/btn_digits" />-->
+<!--    <stroke-->
+<!--        android:width="0dp"-->
+<!--        android:color="#FFC107" />-->
+<!--</shape>-->
