@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity() {
     private var btnBack: Button? = null
     private var LinearLayout_icons: ConstraintLayout? = null
     private var portraitNumPad: LinearLayout? = null
+    private var resultPad_land: LinearLayout? = null
     private var activity_main: ConstraintLayout? = null
     private var calculatorPadViewPager: ConstraintLayout? = null
     private var mainScreenBannerLayout: LinearLayout? = null
@@ -125,6 +126,7 @@ class MainActivity : AppCompatActivity() {
         mainScreenBannerLayout = findViewById(R.id.mainScreenBannerLayout)
         lay_calIcon = findViewById(R.id.lay_calIcon)
         portraitNumPad = findViewById(R.id.portraitNumPad)
+        resultPad_land = findViewById(R.id.resultPad_land)
         landScapeLinearLayout = findViewById(R.id.linearLayoutLandScape)
         ScrollViewLandScape = findViewById(R.id.ScrollViewLandScape)
         calculatorPadViewPager = findViewById(R.id.calculatorPadViewPager)
@@ -213,6 +215,23 @@ class MainActivity : AppCompatActivity() {
             binding.two?.setOnClickListener(buttonClick)
             binding.three?.setOnClickListener(buttonClick)
             binding.plus?.setOnClickListener(buttonClick)
+            binding.deleteLandscape?.setOnClickListener {
+                it.isHapticFeedbackEnabled = true
+                it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+                val expression = removeNumberSeparator(getExpression())
+                if (expression.isEmpty()) {
+                    return@setOnClickListener
+                }
+                val newExpression = if (viewModel.getNumberSeparator() != NumberSeparator.OFF) {
+                    addNumberSeparator(
+                        expression = handleDelete(expression),
+                        isIndian = (viewModel.getNumberSeparator() == NumberSeparator.INDIAN)
+                    )
+                } else {
+                    handleDelete(expression)
+                }
+                setExpression(newExpression)
+            }
             binding.AC?.setOnClickListener {
                 expression?.text = null
                 result?.text = null
@@ -286,8 +305,6 @@ class MainActivity : AppCompatActivity() {
 //
 ////                Toast.makeText(this, "no history found", Toast.LENGTH_SHORT).show()
 //            }
-
-
         }
 
         // setting icon
@@ -295,8 +312,6 @@ class MainActivity : AppCompatActivity() {
 //            showInterstitialAdSetting()
             settingDialog()
 //            startActivity(Intent(this@MainActivity, Setting_Activity::class.java))
-
-
         }
 
         // scientific calculator icon to change orientation
@@ -955,6 +970,7 @@ class MainActivity : AppCompatActivity() {
 
             } else {
                 binding.resultPad.layCalIcon!!.setBackgroundColor(constraintlayout1!!)
+                binding.resultPad.resultPadLand!!.setBackgroundColor(constraintlayout1!!)
 //                landScapeLinearLayout!!.setBackgroundColor(constraintlayout1!!)
 //                ScrollViewLandScape!!.setBackgroundColor(constraintlayout1!!)
             }
@@ -981,7 +997,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 //    override fun getViewBinding(inflater: LayoutInflater) = ActivityMainBinding.inflate(inflater)
-
 
     //show admob interstitial ad
     private fun showInterstitialAdHistory() {

@@ -22,6 +22,7 @@
             android:id="@+id/btnBack"
             android:layout_width="70dp"
             android:layout_height="70dp"
+            android:layout_marginStart="10dp"
             android:background="@drawable/ic_sci_calcul"
             android:text="Back"
             app:backgroundTint="@null"
@@ -31,9 +32,9 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/resultPad_land"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2"
         android:orientation="vertical">
 
         <com.cyber.tarzan.calculator.ui.view.CalculatorEditText
