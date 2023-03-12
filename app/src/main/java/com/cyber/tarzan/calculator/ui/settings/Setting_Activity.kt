@@ -8,10 +8,7 @@ import android.util.Log
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.RatingBar
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.cyber.tarzan.calculator.R
@@ -43,7 +40,6 @@ class Setting_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         refreshAd()
         val window: Window = this.window
@@ -138,10 +134,21 @@ class Setting_Activity : AppCompatActivity() {
                     override fun onChooseColor(position: Int, color: Int) {
                         Log.d("TESTTAG", "Color $color")
                         // put code
-                        lastBackgroundColor = color
-                        prefUtil!!.setInt("BackgroundColor", color)
-                        binding.settingsBackgroundLayout!!.setBackgroundColor(lastBackgroundColor)
+                        if (color != lastTextColor) {
+                            lastBackgroundColor = color
+                            prefUtil!!.setInt("BackgroundColor", color)
+                            binding.settingsBackgroundLayout!!.setBackgroundColor(
+                                lastBackgroundColor
+                            )
 //                    colorPicker.dismissDialog()
+                        } else {
+                            Toast.makeText(
+                                applicationContext,
+                                "color should not be same as text color",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+
                     }
 
                     override fun onCancel() {
@@ -158,11 +165,19 @@ class Setting_Activity : AppCompatActivity() {
                 colorPicker.setOnChooseColorListener(object : ColorPicker.OnChooseColorListener {
                     override fun onChooseColor(position: Int, color: Int) {
                         Log.d("TESTTAG", "Color $color")
-                        // put code
-                        lastTextColor = color
-                        prefUtil!!.setInt("textColor", color)
-                        changeTextColor()
+                        if (color!= lastBackgroundColor){
+                            lastTextColor = color
+                            prefUtil!!.setInt("textColor", color)
+                            changeTextColor()
 //                    colorPicker.dismissDialog()
+                        }else{
+                            Toast.makeText(
+                                applicationContext,
+                                "color should not be same as background color",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+
                     }
 
                     override fun onCancel() {
