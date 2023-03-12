@@ -3,47 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/drawable/digit_button_shape.xml" value="0.25" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/drawable/getstarted_bg_shape.xml" value="0.22" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/drawable/ic_arith_bg.xml" value="0.25" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1835" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/drawable/ic_sci_calcul.xml" value="0.25" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/drawable/ic_splashbgimage.xml" value="0.196" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/drawable/ic_sssplash.xml" value="0.196" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/drawable/landscape_shape.xml" value="0.25" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/drawable/operator_button_shape.xml" value="0.25" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/drawable/other_buttons.xml" value="0.2405" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/drawable/sci_buttons.xml" value="0.236" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/drawable/sci_calcu_shape.xml" value="0.236" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/drawable/settingdialog_shape.xml" value="0.1765" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout-land/activity_main.xml" value="0.67" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout-land/num_pad.xml" value="0.33" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout-sw360dp-land/activity_main.xml" value="0.33" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout-sw360dp-land/result_pad.xml" value="0.33" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout-sw360dp-land/scientific_pad.xml" value="0.25" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout-sw360dp/activity_main.xml" value="0.25" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout-sw360dp/num_pad.xml" value="0.33" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout-sw360dp/result_pad.xml" value="0.6171875" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout-sw360dp/scientific_pad.xml" value="0.2359375" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout-sw400dp-land/activity_main.xml" value="0.25" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout-sw400dp-land/landscap_num.xml" value="0.6265625" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout-sw400dp-land/scientific_pad.xml" value="0.25" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout-sw400dp/activity_main.xml" value="0.25" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout-sw400dp/num_pad.xml" value="0.25" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout-sw480dp-land/activity_main.xml" value="0.38046875" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout-sw480dp/activity_main.xml" value="0.30859375" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout-sw480dp/scientific_pad.xml" value="0.23359375" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout/activity_history.xml" value="0.315625" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout/activity_launcher.xml" value="0.33" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout/activity_main.xml" value="0.5" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout/activity_setting.xml" value="0.33" />
         <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout/custom_promp_exit_popup.xml" value="0.33" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout/custom_setting_dialog.xml" value="0.4114583333333333" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout/history_clear_dialog.xml" value="0.25" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout/history_item.xml" value="0.25" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout/num_pad.xml" value="0.6666666666666666" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout/result_pad.xml" value="0.9875" />
-        <entry key="..\:/CyberTarzan/Calculator-Plus.git/app/src/main/res/layout/scientific_pad.xml" value="0.6555183946488294" />
+        <entry key="..\:/iCalculator_kotlin/app/src/main/res/layout/activity_launcher.xml" value="0.22" />
       </map>
     </option>
   </component>

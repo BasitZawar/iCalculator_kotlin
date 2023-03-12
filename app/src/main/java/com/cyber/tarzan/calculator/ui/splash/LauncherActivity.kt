@@ -1,7 +1,10 @@
 package com.cyber.tarzan.calculator.ui.splash
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.IntentSender
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -41,6 +44,7 @@ import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.InstallStatus
 import com.google.android.play.core.install.model.UpdateAvailability
 
+
 class LauncherActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLauncherBinding
     private val MY_REQUEST_CODE = 500
@@ -55,13 +59,18 @@ class LauncherActivity : AppCompatActivity() {
         binding = ActivityLauncherBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val manager: PackageManager = packageManager
+        val info: PackageInfo = manager.getPackageInfo(
+            packageName, 0
+        )
+        val version = info.versionName
+        Log.d(TAG, "onCreate: $version")
 
         binding.tvPrivacyPolicy.setOnClickListener {
-            privacyPolicy()
+//            privacyPolicy()
             InfoUtil(this).privacy()
-
         }
-
+        binding.tvVersion.text = "v : $version"
 // inAppUpdate
         checkForAppUpdate()
 
@@ -290,7 +299,7 @@ class LauncherActivity : AppCompatActivity() {
 
     private fun privacyPolicy() {
         val url =
-            "https://www.niamtechnologies.com/privacy"
+            "https://www.cybertarzan.com/privacy"
         val i = Intent(Intent.ACTION_VIEW)
         i.data = Uri.parse(url)
         startActivity(i)
