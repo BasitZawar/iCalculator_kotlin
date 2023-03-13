@@ -51,51 +51,15 @@ import petrov.kristiyan.colorpicker.BuildConfig
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-//    val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
-
     private var nativeAd: NativeAd? = null
     private var mAdView: AdView? = null
     private val viewModel: MainViewModel by viewModels()
     private var mCurrentAnimator: Animator? = null
-    private var deleteButton: ImageButton? = null
-    private var historyIcon: ImageView? = null
-    private var setting: ImageView? = null
-    private var scientificCalculatorIcon: ImageView? = null
-    private var btnBack: Button? = null
-
-    //    private var LinearLayout_icons2: ConstraintLayout? = null
-//    private var portraitNumPad: LinearLayout? = null
-//    private var resultPad_land: LinearLayout? = null
-//    private var activity_main: LinearLayout? = null
-//    private var calculatorPadViewPager: ConstraintLayout? = null
-//    private var mainScreenBannerLayout: LinearLayout? = null
-//    private var lay_calIcon: LinearLayout? = null
-//    private var expression: CalculatorEditText? = null
-//    private var result: CalculatorEditText? = null
-    private var AC: MaterialButton? = null
     var textColorMainActivity: Int? = null
     var constraintlayout1: Int? = null
-    var tv_settings: TextView? = null
-    var tv_More: TextView? = null
-    var tv_RateApp: TextView? = null
-    var tv_ShareApp: TextView? = null
-    var tv_feedBack: TextView? = null
     var prefUtil: PrefUtil? = null
-
-    //    var one: TextView? = null
-//    var two: TextView? = null
-//    var three: TextView? = null
-//    var four: TextView? = null
-//    var five: TextView? = null
-//    var six: TextView? = null
-//    var seven: TextView? = null
-//    var eight: TextView? = null
-//    var nine: TextView? = null
-//    var zero: TextView? = null
-//    var dot: TextView? = null
     private val reviewManager: ReviewManager? = null
     lateinit var binding: ActivityMainBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -110,8 +74,9 @@ class MainActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 val reviewInfo = task.result
                 setInAppReview(reviewInfo)
+
             } else {
-                Log.e("application", "onCreate: " + task.result)
+                Log.e("application2", "onCreate: " + task.result)
             }
         }
 
@@ -129,30 +94,6 @@ class MainActivity : AppCompatActivity() {
         setupObservers()
         setClickListener()
 
-//        deleteButton = findViewById(R.id.delete)
-//        historyIcon = findViewById(R.id.history_icon)
-//        setting = findViewById(R.id.setting)
-//        scientificCalculatorIcon = findViewById(R.id.scientificCal_Icon)
-//        btnBack = findViewById(R.id.btnBack)
-//        binding.expression = findViewById(R.id.expression)
-//        LinearLayout_icons2 = findViewById(R.id.LinearLayout_icons)
-//        mainScreenBannerLayout = findViewById(R.id.mainScreenBannerLayout)
-//        lay_calIcon = findViewById(R.id.lay_calIcon)
-//        portraitNumPad = findViewById(R.id.portraitNumPad)
-//        resultPad_land = findViewById(R.id.resultPad_land)
-//        resultPad_portrait = findViewById(R.id.resultPad_portrait)
-//        landScapeLinearLayout = findViewById(R.id.linearLayoutLandScape)
-//        ScrollViewLandScape = findViewById(R.id.ScrollViewLandScape)
-//        calculatorPadViewPager = findViewById(R.id.calculatorPadViewPager)
-//        activity_main = findViewById(R.id.activity_main)
-//        result = findViewById(R.id.result)
-//        AC = findViewById(R.id.AC)
-//        tv_settings = findViewById(R.id.tv_settings)
-//        tv_More = findViewById(R.id.tv_More)
-//        tv_RateApp = findViewById(R.id.tv_RateApp)
-//        tv_ShareApp = findViewById(R.id.tv_ShareApp)
-//        tv_feedBack = findViewById(R.id.tv_MoreApp)
-
 //        adView = findViewById(R.id.mainScreenBannerLayout)
 
 //Banner ad
@@ -168,52 +109,8 @@ class MainActivity : AppCompatActivity() {
 
 //        }
 
-
-        //===================================
-        //Numeric buttons text
-//        one = findViewById(R.id.one)
-//        two = findViewById(R.id.two)
-//        three = findViewById(R.id.three)
-//        four = findViewById(R.id.four)
-//        five = findViewById(R.id.five)
-//        six = findViewById(R.id.six)
-//        seven = findViewById(R.id.seven)
-//        eight = findViewById(R.id.eight)
-//        nine = findViewById(R.id.nine)
-//        zero = findViewById(R.id.zero)
-//        dot = findViewById(R.id.decimal)
-
         prefUtil = PrefUtil(applicationContext)
-//=============================
-//        textColorMainActivity = prefUtil!!.getInt("textColor", 0)
-//        if (prefUtil!!.getInt("textColor", 0) == 0) {
-////            Toast.makeText(applicationContext, "preference are null", Toast.LENGTH_SHORT).show()
-//        } else {
-//            changeTextColor()
-////            Toast.makeText(applicationContext, "preference are not null", Toast.LENGTH_SHORT).show()
-//        }
 
-
-//=============================
-//        constraintlayout1 = prefUtil!!.getInt("BackgroundColor", 0)
-//        if (prefUtil!!.getInt("BackgroundColor", 0) == 0) {
-//        } else {
-//            activity_main!!.setBackgroundColor(constraintlayout1!!)
-//            expression!!.setBackgroundColor(constraintlayout1!!)
-//            result!!.setBackgroundColor(constraintlayout1!!)
-//            portraitNumPad!!.setBackgroundColor(constraintlayout1!!)
-//            if (resources.configuration.orientation == ORIENTATION_PORTRAIT) {
-//                LinearLayout_icons!!.setBackgroundColor(constraintlayout1!!)
-//                mainScreenBannerLayout!!.setBackgroundColor(constraintlayout1!!)
-//            } else {
-//                landScapeLinearLayout!!.setBackgroundColor(constraintlayout1!!)
-//                ScrollViewLandScape!!.setBackgroundColor(constraintlayout1!!)
-//            }
-//        }
-//
-
-
-        //today
         if (resources.configuration.orientation == ORIENTATION_LANDSCAPE) {
             binding.percent?.setOnClickListener(buttonClick)
             binding.factorial?.setOnClickListener(buttonClick)
@@ -334,7 +231,9 @@ class MainActivity : AppCompatActivity() {
         binding.scientificCalIcon?.setOnClickListener {
             if (resources.configuration.orientation == ORIENTATION_PORTRAIT) {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE;
+                islandscape = true
             } else {
+                islandscape = false
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
             }
         }
@@ -355,11 +254,6 @@ class MainActivity : AppCompatActivity() {
         binding.decimal!!.setTextColor(textColorMainActivity!!)
         binding.result!!.setTextColor(textColorMainActivity!!)
         binding.expression!!.setTextColor(textColorMainActivity!!)
-//        tv_More!!.setTextColor(textColorMainActivity!!)
-//        tv_RateApp!!.setTextColor(textColorMainActivity!!)
-//        tv_ShareApp!!.setTextColor(textColorMainActivity!!)
-//        tv_feedBack!!.setTextColor(textColorMainActivity!!)
-//        tv_settings!!.setTextColor(textColorMainActivity!!)
     }
 
     private val buttonClick = View.OnClickListener {
@@ -417,19 +311,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setClickListener() {
-
-
-        //number Pad
-//        with(binding.numPad) {
-        //first row
         binding.percent?.setOnClickListener(buttonClick)
         binding.AC?.setOnClickListener {
             binding.expression?.text = null
             binding.result?.text = null
         }
         binding.factorial?.setOnClickListener(buttonClick)
-//            openBracket.setOnClickListener(buttonClick)
-//            closeBracket?.setOnClickListener(buttonClick)
         //second row
         binding.seven?.setOnClickListener(buttonClick)
         binding.eight?.setOnClickListener(buttonClick)
@@ -449,18 +336,14 @@ class MainActivity : AppCompatActivity() {
         binding?.decimal?.setOnClickListener(buttonClick)
         binding?.zero?.setOnClickListener(buttonClick)
         binding?.minus?.setOnClickListener(buttonClick)
-//        }
+
         //scientific Pad
-//        with(binding.scientificPad) {
         //first row
         binding.sin?.setOnClickListener(buttonClick)
         binding.cos?.setOnClickListener(buttonClick)
         binding.tan?.setOnClickListener(buttonClick)
         binding.openBracket?.setOnClickListener(buttonClick)
 //            //second row
-//            asin.setOnClickListener(buttonClick)
-//            acos.setOnClickListener(buttonClick)
-//            atan.setOnClickListener(buttonClick)
         binding.closeBracket?.setOnClickListener(buttonClick)
 //            //third row
         binding.exponential?.setOnClickListener(buttonClick)
@@ -472,7 +355,6 @@ class MainActivity : AppCompatActivity() {
         binding.squareRoot?.setOnClickListener(buttonClick)
         binding.cubeRoot?.setOnClickListener(buttonClick)
         binding.pi?.setOnClickListener(buttonClick)
-//        }
 
         //delete onClick
         binding.deleteLandscape?.setOnClickListener {
@@ -967,6 +849,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+//        Toast.makeText(this, "onStart", Toast.LENGTH_SHORT).show()
+
 
 //text color
         textColorMainActivity = prefUtil!!.getInt("textColor", 0)
@@ -989,13 +873,9 @@ class MainActivity : AppCompatActivity() {
             binding.result!!.setBackgroundColor(constraintlayout1!!)
             if (resources.configuration.orientation == ORIENTATION_PORTRAIT) {
                 binding.portraitNumPad!!.setBackgroundColor(constraintlayout1!!)
-//                resultPad_portrait!!.setBackgroundColor(constraintlayout1!!)
-
             } else {
                 binding.layCalIcon?.setBackgroundColor(constraintlayout1!!)
                 binding.resultPadLand!!.setBackgroundColor(constraintlayout1!!)
-//                landScapeLinearLayout!!.setBackgroundColor(constraintlayout1!!)
-//                ScrollViewLandScape!!.setBackgroundColor(constraintlayout1!!)
             }
         }
 
@@ -1008,7 +888,6 @@ class MainActivity : AppCompatActivity() {
             )
         }
         setExpression(savedExpression)
-
 //        Toast.makeText(this, "onStart", Toast.LENGTH_SHORT).show()
     }
 
@@ -1063,6 +942,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         var isHistoryAvailable: Boolean = false
+        var islandscape: Boolean = false
     }
 
     fun initializeAds() {
@@ -1115,7 +995,6 @@ class MainActivity : AppCompatActivity() {
         val adWidth = (widthPixels / density).toInt()
         return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth)
     }
-
 
     // When User cilcks on dialog button, call this method
     private fun settingDialog() {

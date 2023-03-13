@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
+    android:gravity="center"
     android:orientation="vertical"
     android:weightSum="4"
     tools:context=".ui.main.MainActivity">
@@ -15,14 +16,15 @@
         android:id="@+id/mainScreenBannerLayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_gravity="center"
         android:layout_weight="1"
         android:orientation="vertical" />
 
     <LinearLayout
         android:id="@+id/resultPad"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="100dp"
+        android:gravity="center"
         android:orientation="vertical">
 
         <com.cyber.tarzan.calculator.ui.view.CalculatorEditText
@@ -56,10 +58,6 @@
             android:singleLine="true"
             android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline4"
             android:textColor="?attr/textDisable"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/expression"
             custom:maxTextSize="30sp"
             custom:minTextSize="20sp"
             tools:text="50258" />
@@ -70,8 +68,9 @@
         android:id="@+id/LinearLayout_icons"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        android:layout_gravity="center"
         android:orientation="horizontal">
 
         <ImageButton
@@ -115,8 +114,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/calculatorPadViewPager"
         android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1">
 
         <LinearLayout
             android:id="@+id/portraitNumPad"
@@ -124,10 +124,11 @@
             android:layout_height="wrap_content"
             android:gravity="bottom"
             android:orientation="vertical"
+            android:layout_marginTop="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            >
 
             <LinearLayout
                 android:id="@+id/firstRow"

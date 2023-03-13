@@ -17,6 +17,7 @@ import androidx.lifecycle.ProcessLifecycleOwner;
 import com.cyber.tarzan.calculator.admob.AdIds;
 import com.cyber.tarzan.calculator.admob.AdMobInterstitial;
 import com.cyber.tarzan.calculator.ui.MainApplication;
+import com.cyber.tarzan.calculator.ui.main.MainActivity;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
@@ -54,7 +55,9 @@ public class AppOpenManager implements LifecycleObserver, Application.ActivityLi
      */
     @OnLifecycleEvent(ON_START)
     public void onStart() {
-        showAdIfAvailable();
+//        if (MainActivity.Companion.getIslandscape() != true) {
+            showAdIfAvailable();
+//        }
     }
 
     /**

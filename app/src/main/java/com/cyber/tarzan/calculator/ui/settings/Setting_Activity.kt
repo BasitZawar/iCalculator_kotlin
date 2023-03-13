@@ -29,12 +29,9 @@ import petrov.kristiyan.colorpicker.ColorPicker
 class Setting_Activity : AppCompatActivity() {
 
     private var nativeAd: NativeAd? = null
-
-
     private lateinit var binding: ActivitySettingBinding
     var prefUtil: PrefUtil? = null
     var colorPicker: ColorPicker? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,16 +43,13 @@ class Setting_Activity : AppCompatActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.statusBarColor = ContextCompat.getColor(this, R.color.black)
 
-
         //Banner ad
-
         //        if (VerificationCheck.playStoreAppVerification(this@MainActivity)) {
 //        AdsManager.instance?.showAdMobBanner(
 //            this@Setting_Activity,
 //            this@Setting_Activity,
 //            binding.settingBannerLayout!!
 //        )
-//
 //        Log.d(ContentValues.TAG, "onCreate: Banner add shown")
 
 //            }
@@ -165,19 +159,18 @@ class Setting_Activity : AppCompatActivity() {
                 colorPicker.setOnChooseColorListener(object : ColorPicker.OnChooseColorListener {
                     override fun onChooseColor(position: Int, color: Int) {
                         Log.d("TESTTAG", "Color $color")
-                        if (color!= lastBackgroundColor){
+                        if (color != lastBackgroundColor) {
                             lastTextColor = color
                             prefUtil!!.setInt("textColor", color)
                             changeTextColor()
 //                    colorPicker.dismissDialog()
-                        }else{
+                        } else {
                             Toast.makeText(
                                 applicationContext,
                                 "Text color should not be same as background color",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
-
                     }
 
                     override fun onCancel() {
@@ -185,15 +178,6 @@ class Setting_Activity : AppCompatActivity() {
                     }
                 })
             }
-//            tvRateApp.setOnClickListener {
-//                rateApp()
-//            }
-//            tvShareApp.setOnClickListener {
-//                shareApp()
-//            }
-//            tvFeedBack.setOnClickListener {
-//                feedback()
-//            }
             tvPrivacyPolicy.setOnClickListener {
 
                 startActivity(
@@ -212,57 +196,6 @@ class Setting_Activity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
-
-//    //share app
-//    fun shareApp() {
-//        try {
-//            val shareIntent = Intent(Intent.ACTION_SEND)
-//            shareIntent.type = "text/plain"
-//            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My application name")
-//            var shareMessage = "\nLet me recommend you this application\n\n"
-//            val mBuildConfig: BuildConfig? = null
-//            shareMessage =
-//                """
-//            ${shareMessage}https://play.google.com/store/apps/details?id=com.calculator.ct}
-//            """.trimIndent()
-//            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
-//            startActivity(Intent.createChooser(shareIntent, "choose one"))
-//        } catch (e: Exception) {
-//            //e.toString();
-//        }
-//    }
-
-//    // rate app
-//    private fun rateApp() {
-//        val uri: Uri = Uri.parse("market://details?id=$packageName")
-//        val goToMarket = Intent(Intent.ACTION_VIEW, uri)
-//        // To count with Play market backstack, After pressing back button,
-//        // to taken back to our application, we need to add following flags to intent.
-//        goToMarket.addFlags(
-//            Intent.FLAG_ACTIVITY_NO_HISTORY or
-//                    Intent.FLAG_ACTIVITY_NEW_DOCUMENT or
-//                    Intent.FLAG_ACTIVITY_MULTIPLE_TASK
-//        )
-//        try {
-//            startActivity(goToMarket)
-//        } catch (e: ActivityNotFoundException) {
-//            startActivity(
-//                Intent(
-//                    Intent.ACTION_VIEW,
-//                    Uri.parse("http://play.google.com/store/apps/details?id=$packageName")
-//                )
-//            )
-//        }
-//    }
-
-//    //Feedback
-//    private fun feedback() {
-//        val feedbackEmail = Intent(Intent.ACTION_SEND)
-//        feedbackEmail.type = "text/email"
-//        feedbackEmail.putExtra(Intent.EXTRA_EMAIL, arrayOf("basitzawar@gmail.com"))
-//        feedbackEmail.putExtra(Intent.EXTRA_SUBJECT, "Feedback")
-//        startActivity(Intent.createChooser(feedbackEmail, "Send Feedback:"))
-//    }
 
     private fun changeTextColor() {
         binding.tvPrivacyPolicy.setTextColor(lastTextColor)
@@ -388,6 +321,57 @@ class Setting_Activity : AppCompatActivity() {
             startActivity(Intent(this@Setting_Activity, HistoryActivity::class.java))
             Log.d("TAG", "onCreate: move to next screen")
         }
-
     }
+
+//    //share app
+//    fun shareApp() {
+//        try {
+//            val shareIntent = Intent(Intent.ACTION_SEND)
+//            shareIntent.type = "text/plain"
+//            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My application name")
+//            var shareMessage = "\nLet me recommend you this application\n\n"
+//            val mBuildConfig: BuildConfig? = null
+//            shareMessage =
+//                """
+//            ${shareMessage}https://play.google.com/store/apps/details?id=com.calculator.ct}
+//            """.trimIndent()
+//            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
+//            startActivity(Intent.createChooser(shareIntent, "choose one"))
+//        } catch (e: Exception) {
+//            //e.toString();
+//        }
+//    }
+
+//    // rate app
+//    private fun rateApp() {
+//        val uri: Uri = Uri.parse("market://details?id=$packageName")
+//        val goToMarket = Intent(Intent.ACTION_VIEW, uri)
+//        // To count with Play market backstack, After pressing back button,
+//        // to taken back to our application, we need to add following flags to intent.
+//        goToMarket.addFlags(
+//            Intent.FLAG_ACTIVITY_NO_HISTORY or
+//                    Intent.FLAG_ACTIVITY_NEW_DOCUMENT or
+//                    Intent.FLAG_ACTIVITY_MULTIPLE_TASK
+//        )
+//        try {
+//            startActivity(goToMarket)
+//        } catch (e: ActivityNotFoundException) {
+//            startActivity(
+//                Intent(
+//                    Intent.ACTION_VIEW,
+//                    Uri.parse("http://play.google.com/store/apps/details?id=$packageName")
+//                )
+//            )
+//        }
+//    }
+
+//    //Feedback
+//    private fun feedback() {
+//        val feedbackEmail = Intent(Intent.ACTION_SEND)
+//        feedbackEmail.type = "text/email"
+//        feedbackEmail.putExtra(Intent.EXTRA_EMAIL, arrayOf("basitzawar@gmail.com"))
+//        feedbackEmail.putExtra(Intent.EXTRA_SUBJECT, "Feedback")
+//        startActivity(Intent.createChooser(feedbackEmail, "Send Feedback:"))
+//    }
+
 }
