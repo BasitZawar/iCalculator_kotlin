@@ -248,6 +248,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/other_buttons"
                 android:text="C"
+                android:textSize="20sp"
+                android:textAllCaps="true"
                 android:textColor="@color/white"
                 app:backgroundTint="@null" />
 
