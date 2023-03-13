@@ -1,7 +1,6 @@
 package com.cyber.tarzan.calculator.ui.main
 
 import android.animation.*
-import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -23,7 +22,6 @@ import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import com.cyber.tarzan.calculator.R
 import com.cyber.tarzan.calculator.admob.*
@@ -53,7 +51,7 @@ import petrov.kristiyan.colorpicker.BuildConfig
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+//    val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     private var nativeAd: NativeAd? = null
     private var mAdView: AdView? = null
@@ -64,18 +62,16 @@ class MainActivity : AppCompatActivity() {
     private var setting: ImageView? = null
     private var scientificCalculatorIcon: ImageView? = null
     private var btnBack: Button? = null
-    private var LinearLayout_icons: ConstraintLayout? = null
-    private var portraitNumPad: LinearLayout? = null
-    private var resultPad_land: LinearLayout? = null
-    private var resultPad_portrait: LinearLayout? = null
-    private var activity_main: ConstraintLayout? = null
-    private var calculatorPadViewPager: ConstraintLayout? = null
-    private var mainScreenBannerLayout: LinearLayout? = null
-    private var lay_calIcon: LinearLayout? = null
-    private var expression: CalculatorEditText? = null
-    private var ScrollViewLandScape: ScrollView? = null
-    private var landScapeLinearLayout: LinearLayout? = null
-    private var result: CalculatorEditText? = null
+
+    //    private var LinearLayout_icons2: ConstraintLayout? = null
+//    private var portraitNumPad: LinearLayout? = null
+//    private var resultPad_land: LinearLayout? = null
+//    private var activity_main: LinearLayout? = null
+//    private var calculatorPadViewPager: ConstraintLayout? = null
+//    private var mainScreenBannerLayout: LinearLayout? = null
+//    private var lay_calIcon: LinearLayout? = null
+//    private var expression: CalculatorEditText? = null
+//    private var result: CalculatorEditText? = null
     private var AC: MaterialButton? = null
     var textColorMainActivity: Int? = null
     var constraintlayout1: Int? = null
@@ -85,28 +81,27 @@ class MainActivity : AppCompatActivity() {
     var tv_ShareApp: TextView? = null
     var tv_feedBack: TextView? = null
     var prefUtil: PrefUtil? = null
-    var one: TextView? = null
-    var two: TextView? = null
-    var three: TextView? = null
-    var four: TextView? = null
-    var five: TextView? = null
-    var six: TextView? = null
-    var seven: TextView? = null
-    var eight: TextView? = null
-    var nine: TextView? = null
-    var zero: TextView? = null
-    var dot: TextView? = null
+
+    //    var one: TextView? = null
+//    var two: TextView? = null
+//    var three: TextView? = null
+//    var four: TextView? = null
+//    var five: TextView? = null
+//    var six: TextView? = null
+//    var seven: TextView? = null
+//    var eight: TextView? = null
+//    var nine: TextView? = null
+//    var zero: TextView? = null
+//    var dot: TextView? = null
     private val reviewManager: ReviewManager? = null
+    lateinit var binding: ActivityMainBinding
 
-    @SuppressLint("SupportAnnotationUsage")
+
     override fun onCreate(savedInstanceState: Bundle?) {
-//        val appPreference = SharedPreference(this)
-//        val accentTheme =
-//            appPreference.getStringPreference(SharedPreference.ACCENT_THEME, AccentTheme.BLUE.name)
-//        setTheme(getAccentTheme(accentTheme))
-
+        binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+//        setContentView(R.layout.activity_main)
 //        refreshAd()
 
         val reviewManager = ReviewManagerFactory.create(this)
@@ -119,7 +114,6 @@ class MainActivity : AppCompatActivity() {
                 Log.e("application", "onCreate: " + task.result)
             }
         }
-
 
 //        mainScreenBannerLayout = findViewById(R.id.mainScreenBannerLayout)
 //        setContentView(R.layout.activity_main)
@@ -135,29 +129,29 @@ class MainActivity : AppCompatActivity() {
         setupObservers()
         setClickListener()
 
-        deleteButton = findViewById(R.id.delete)
-        historyIcon = findViewById(R.id.history_icon)
-        setting = findViewById(R.id.setting)
-        scientificCalculatorIcon = findViewById(R.id.scientificCal_Icon)
-        btnBack = findViewById(R.id.btnBack)
-        expression = findViewById(R.id.expression)
-        LinearLayout_icons = findViewById(R.id.LinearLayout_icons)
-        mainScreenBannerLayout = findViewById(R.id.mainScreenBannerLayout)
-        lay_calIcon = findViewById(R.id.lay_calIcon)
-        portraitNumPad = findViewById(R.id.portraitNumPad)
-        resultPad_land = findViewById(R.id.resultPad_land)
-        resultPad_portrait = findViewById(R.id.resultPad_portrait)
-        landScapeLinearLayout = findViewById(R.id.linearLayoutLandScape)
-        ScrollViewLandScape = findViewById(R.id.ScrollViewLandScape)
-        calculatorPadViewPager = findViewById(R.id.calculatorPadViewPager)
-        activity_main = findViewById(R.id.activity_main)
-        result = findViewById(R.id.result)
-        AC = findViewById(R.id.AC)
-        tv_settings = findViewById(R.id.tv_settings)
-        tv_More = findViewById(R.id.tv_More)
-        tv_RateApp = findViewById(R.id.tv_RateApp)
-        tv_ShareApp = findViewById(R.id.tv_ShareApp)
-        tv_feedBack = findViewById(R.id.tv_MoreApp)
+//        deleteButton = findViewById(R.id.delete)
+//        historyIcon = findViewById(R.id.history_icon)
+//        setting = findViewById(R.id.setting)
+//        scientificCalculatorIcon = findViewById(R.id.scientificCal_Icon)
+//        btnBack = findViewById(R.id.btnBack)
+//        binding.expression = findViewById(R.id.expression)
+//        LinearLayout_icons2 = findViewById(R.id.LinearLayout_icons)
+//        mainScreenBannerLayout = findViewById(R.id.mainScreenBannerLayout)
+//        lay_calIcon = findViewById(R.id.lay_calIcon)
+//        portraitNumPad = findViewById(R.id.portraitNumPad)
+//        resultPad_land = findViewById(R.id.resultPad_land)
+//        resultPad_portrait = findViewById(R.id.resultPad_portrait)
+//        landScapeLinearLayout = findViewById(R.id.linearLayoutLandScape)
+//        ScrollViewLandScape = findViewById(R.id.ScrollViewLandScape)
+//        calculatorPadViewPager = findViewById(R.id.calculatorPadViewPager)
+//        activity_main = findViewById(R.id.activity_main)
+//        result = findViewById(R.id.result)
+//        AC = findViewById(R.id.AC)
+//        tv_settings = findViewById(R.id.tv_settings)
+//        tv_More = findViewById(R.id.tv_More)
+//        tv_RateApp = findViewById(R.id.tv_RateApp)
+//        tv_ShareApp = findViewById(R.id.tv_ShareApp)
+//        tv_feedBack = findViewById(R.id.tv_MoreApp)
 
 //        adView = findViewById(R.id.mainScreenBannerLayout)
 
@@ -167,10 +161,9 @@ class MainActivity : AppCompatActivity() {
             AdsManager.instance?.showAdMobBanner(
                 this@MainActivity,
                 this@MainActivity,
-                mainScreenBannerLayout!!
+                binding.mainScreenBannerLayout!!
             )
         }
-
         Log.d(TAG, "onCreate: Banner add shown")
 
 //        }
@@ -178,17 +171,17 @@ class MainActivity : AppCompatActivity() {
 
         //===================================
         //Numeric buttons text
-        one = findViewById(R.id.one)
-        two = findViewById(R.id.two)
-        three = findViewById(R.id.three)
-        four = findViewById(R.id.four)
-        five = findViewById(R.id.five)
-        six = findViewById(R.id.six)
-        seven = findViewById(R.id.seven)
-        eight = findViewById(R.id.eight)
-        nine = findViewById(R.id.nine)
-        zero = findViewById(R.id.zero)
-        dot = findViewById(R.id.decimal)
+//        one = findViewById(R.id.one)
+//        two = findViewById(R.id.two)
+//        three = findViewById(R.id.three)
+//        four = findViewById(R.id.four)
+//        five = findViewById(R.id.five)
+//        six = findViewById(R.id.six)
+//        seven = findViewById(R.id.seven)
+//        eight = findViewById(R.id.eight)
+//        nine = findViewById(R.id.nine)
+//        zero = findViewById(R.id.zero)
+//        dot = findViewById(R.id.decimal)
 
         prefUtil = PrefUtil(applicationContext)
 //=============================
@@ -217,7 +210,10 @@ class MainActivity : AppCompatActivity() {
 //                ScrollViewLandScape!!.setBackgroundColor(constraintlayout1!!)
 //            }
 //        }
+//
 
+
+        //today
         if (resources.configuration.orientation == ORIENTATION_LANDSCAPE) {
             binding.percent?.setOnClickListener(buttonClick)
             binding.factorial?.setOnClickListener(buttonClick)
@@ -235,7 +231,7 @@ class MainActivity : AppCompatActivity() {
             binding.two?.setOnClickListener(buttonClick)
             binding.three?.setOnClickListener(buttonClick)
             binding.plus?.setOnClickListener(buttonClick)
-            binding.deleteLandscape?.setOnClickListener {
+            binding.delete?.setOnClickListener {
                 it.isHapticFeedbackEnabled = true
                 it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
                 val expression = removeNumberSeparator(getExpression())
@@ -253,10 +249,10 @@ class MainActivity : AppCompatActivity() {
                 setExpression(newExpression)
             }
             binding.AC?.setOnClickListener {
-                expression?.text = null
-                result?.text = null
+                binding.expression?.text = null
+                binding.result?.text = null
             }
-            binding.resultPad.btnBack?.setOnClickListener {
+            binding.btnBack?.setOnClickListener {
                 if (resources.configuration.orientation == ORIENTATION_PORTRAIT) {
                     requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE;
                 } else {
@@ -271,13 +267,13 @@ class MainActivity : AppCompatActivity() {
                 if (expression.isNotEmpty()) {
                     if (result.isEmpty() || !removeNumberSeparator(result).isNumber()) {
                         val shake = AnimationUtils.loadAnimation(this, R.anim.shake)
-                        getResultEditText().setTextColor(getResultTextColor(true))
+                        getResultEditText()!!.setTextColor(getResultTextColor(true))
                         val errorStringId = viewModel.error.value ?: R.string.invalid
                         if (errorStringId == -1) {
                             setResult("")
                         } else {
                             setResult(getString(errorStringId))
-                            getResultEditText().startAnimation(shake)
+                            getResultEditText()!!.startAnimation(shake)
                             isHistoryAvailable = false
                         }
 
@@ -298,7 +294,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // delete button
-        deleteButton?.setOnClickListener {
+        binding.delete?.setOnClickListener {
             it.isHapticFeedbackEnabled = true
             it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             val expression = removeNumberSeparator(getExpression())
@@ -317,7 +313,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         //history icon
-        historyIcon?.setOnClickListener {
+        binding.historyIcon?.setOnClickListener {
 //            if (isHistoryAvailable) {
             showInterstitialAdHistory()
 //            } else {
@@ -328,14 +324,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         // setting icon
-        setting?.setOnClickListener {
+        binding.setting?.setOnClickListener {
 //            showInterstitialAdSetting()
             settingDialog()
 //            startActivity(Intent(this@MainActivity, Setting_Activity::class.java))
         }
 
         // scientific calculator icon to change orientation
-        scientificCalculatorIcon?.setOnClickListener {
+        binding.scientificCalIcon?.setOnClickListener {
             if (resources.configuration.orientation == ORIENTATION_PORTRAIT) {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE;
             } else {
@@ -344,21 +340,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    //
+    //today
     private fun changeTextColor() {
-        one!!.setTextColor(textColorMainActivity!!)
-        two!!.setTextColor(textColorMainActivity!!)
-        three!!.setTextColor(textColorMainActivity!!)
-        four!!.setTextColor(textColorMainActivity!!)
-        five!!.setTextColor(textColorMainActivity!!)
-        six!!.setTextColor(textColorMainActivity!!)
-        seven!!.setTextColor(textColorMainActivity!!)
-        eight!!.setTextColor(textColorMainActivity!!)
-        nine!!.setTextColor(textColorMainActivity!!)
-        zero!!.setTextColor(textColorMainActivity!!)
-        dot!!.setTextColor(textColorMainActivity!!)
-        result!!.setTextColor(textColorMainActivity!!)
-        expression!!.setTextColor(textColorMainActivity!!)
+        binding.one!!.setTextColor(textColorMainActivity!!)
+        binding.two!!.setTextColor(textColorMainActivity!!)
+        binding.three!!.setTextColor(textColorMainActivity!!)
+        binding.four!!.setTextColor(textColorMainActivity!!)
+        binding.five!!.setTextColor(textColorMainActivity!!)
+        binding.six!!.setTextColor(textColorMainActivity!!)
+        binding.seven!!.setTextColor(textColorMainActivity!!)
+        binding.eight!!.setTextColor(textColorMainActivity!!)
+        binding.nine!!.setTextColor(textColorMainActivity!!)
+        binding.zero!!.setTextColor(textColorMainActivity!!)
+        binding.decimal!!.setTextColor(textColorMainActivity!!)
+        binding.result!!.setTextColor(textColorMainActivity!!)
+        binding.expression!!.setTextColor(textColorMainActivity!!)
 //        tv_More!!.setTextColor(textColorMainActivity!!)
 //        tv_RateApp!!.setTextColor(textColorMainActivity!!)
 //        tv_ShareApp!!.setTextColor(textColorMainActivity!!)
@@ -413,7 +409,7 @@ class MainActivity : AppCompatActivity() {
 
         override fun afterTextChanged(s: Editable?) {
             setResult("")
-            getResultEditText().setTextColor(getResultTextColor())
+            getResultEditText()!!.setTextColor(getResultTextColor())
             if (!removeNumberSeparator(s.toString()).isNumber()) {
                 viewModel.calculateExpression(s.toString())
             }
@@ -424,62 +420,62 @@ class MainActivity : AppCompatActivity() {
 
 
         //number Pad
-        with(binding.numPad) {
-            //first row
-            this?.percent?.setOnClickListener(buttonClick)
-            this?.AC?.setOnClickListener {
-                expression?.text = null
-                result?.text = null
-            }
-            this?.factorial?.setOnClickListener(buttonClick)
+//        with(binding.numPad) {
+        //first row
+        binding.percent?.setOnClickListener(buttonClick)
+        binding.AC?.setOnClickListener {
+            binding.expression?.text = null
+            binding.result?.text = null
+        }
+        binding.factorial?.setOnClickListener(buttonClick)
 //            openBracket.setOnClickListener(buttonClick)
 //            closeBracket?.setOnClickListener(buttonClick)
-            //second row
-            this?.seven?.setOnClickListener(buttonClick)
-            this?.eight?.setOnClickListener(buttonClick)
-            this?.nine?.setOnClickListener(buttonClick)
-            this?.divide?.setOnClickListener(buttonClick)
-            //third row
-            this?.four?.setOnClickListener(buttonClick)
-            this?.five?.setOnClickListener(buttonClick)
-            this?.six?.setOnClickListener(buttonClick)
-            this?.multiply?.setOnClickListener(buttonClick)
-            //fourth row
-            this?.one?.setOnClickListener(buttonClick)
-            this?.two?.setOnClickListener(buttonClick)
-            this?.three?.setOnClickListener(buttonClick)
-            this?.plus?.setOnClickListener(buttonClick)
-            //fifth row
-            this?.decimal?.setOnClickListener(buttonClick)
-            this?.zero?.setOnClickListener(buttonClick)
-            this?.minus?.setOnClickListener(buttonClick)
-        }
+        //second row
+        binding.seven?.setOnClickListener(buttonClick)
+        binding.eight?.setOnClickListener(buttonClick)
+        binding.nine?.setOnClickListener(buttonClick)
+        binding.divide?.setOnClickListener(buttonClick)
+        //third row
+        binding.four?.setOnClickListener(buttonClick)
+        binding?.five?.setOnClickListener(buttonClick)
+        binding?.six?.setOnClickListener(buttonClick)
+        binding?.multiply?.setOnClickListener(buttonClick)
+        //fourth row
+        binding?.one?.setOnClickListener(buttonClick)
+        binding?.two?.setOnClickListener(buttonClick)
+        binding?.three?.setOnClickListener(buttonClick)
+        binding?.plus?.setOnClickListener(buttonClick)
+        //fifth row
+        binding?.decimal?.setOnClickListener(buttonClick)
+        binding?.zero?.setOnClickListener(buttonClick)
+        binding?.minus?.setOnClickListener(buttonClick)
+//        }
         //scientific Pad
-        with(binding.scientificPad) {
-            //first row
-            binding.sin?.setOnClickListener(buttonClick)
-            binding.cos?.setOnClickListener(buttonClick)
-            binding.tan?.setOnClickListener(buttonClick)
-            binding.openBracket?.setOnClickListener(buttonClick)
+//        with(binding.scientificPad) {
+        //first row
+        binding.sin?.setOnClickListener(buttonClick)
+        binding.cos?.setOnClickListener(buttonClick)
+        binding.tan?.setOnClickListener(buttonClick)
+        binding.openBracket?.setOnClickListener(buttonClick)
 //            //second row
 //            asin.setOnClickListener(buttonClick)
 //            acos.setOnClickListener(buttonClick)
 //            atan.setOnClickListener(buttonClick)
-            binding.closeBracket?.setOnClickListener(buttonClick)
+        binding.closeBracket?.setOnClickListener(buttonClick)
 //            //third row
-            binding.exponential?.setOnClickListener(buttonClick)
-            binding.log?.setOnClickListener(buttonClick)
-            binding.naturalLog?.setOnClickListener(buttonClick)
-            binding.power?.setOnClickListener(buttonClick)
+        binding.exponential?.setOnClickListener(buttonClick)
+        binding.log?.setOnClickListener(buttonClick)
+        binding.naturalLog?.setOnClickListener(buttonClick)
+        binding.power?.setOnClickListener(buttonClick)
 //            //fourth row
-            binding.factorial?.setOnClickListener(buttonClick)
-            binding.squareRoot?.setOnClickListener(buttonClick)
-            binding.cubeRoot?.setOnClickListener(buttonClick)
-            binding.pi?.setOnClickListener(buttonClick)
-        }
+        binding.factorial?.setOnClickListener(buttonClick)
+        binding.squareRoot?.setOnClickListener(buttonClick)
+        binding.cubeRoot?.setOnClickListener(buttonClick)
+        binding.pi?.setOnClickListener(buttonClick)
+//        }
 
         //delete onClick
-        binding?.delete?.setOnClickListener {
+        binding.deleteLandscape?.setOnClickListener {
             it.isHapticFeedbackEnabled = true
             it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             val expression = removeNumberSeparator(getExpression())
@@ -498,7 +494,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         //delete long click
-        binding?.delete?.setOnLongClickListener {
+        binding?.deleteLandscape?.setOnLongClickListener {
             if (getExpression().isNotEmpty()) {
                 animateClear()
             }
@@ -506,7 +502,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         //equal onClick
-        binding.numPad?.equal?.setOnClickListener {
+        binding?.equal?.setOnClickListener {
             it.isHapticFeedbackEnabled = true
             it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             val expression = removeNumberSeparator(getExpression())
@@ -514,13 +510,13 @@ class MainActivity : AppCompatActivity() {
             if (expression.isNotEmpty()) {
                 if (result.isEmpty() || !removeNumberSeparator(result).isNumber()) {
                     val shake = AnimationUtils.loadAnimation(this, R.anim.shake)
-                    getResultEditText().setTextColor(getResultTextColor(true))
+                    getResultEditText()!!.setTextColor(getResultTextColor(true))
                     val errorStringId = viewModel.error.value ?: R.string.invalid
                     if (errorStringId == -1) {
                         setResult("")
                     } else {
                         setResult(getString(errorStringId))
-                        getResultEditText().startAnimation(shake)
+                        getResultEditText()!!.startAnimation(shake)
                         isHistoryAvailable = false
                     }
 
@@ -538,56 +534,56 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
+//today
         //memory store click
-        binding.scientificPad?.memoryStore?.setOnClickListener {
-            it.isHapticFeedbackEnabled = true
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            val result = removeNumberSeparator(getResult())
-            if (result.isNumber()) {
-                Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
-                viewModel.setMemory(result)
-            }
-        }
-
-        //memory restore click
-        binding.scientificPad?.memoryRestore?.setOnClickListener {
-            it.isHapticFeedbackEnabled = true
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            val memory = viewModel.getMemory()
-            val expression = removeNumberSeparator(getExpression())
-            var newExpression = handleConstantClick(expression, memory, viewModel.isPrevResult)
-            viewModel.isPrevResult = false
-            if (viewModel.getNumberSeparator() != NumberSeparator.OFF) {
-                newExpression = addNumberSeparator(
-                    expression = newExpression,
-                    isIndian = (viewModel.getNumberSeparator() == NumberSeparator.INDIAN)
-                )
-            }
-            setExpression(newExpression)
-        }
-
-        binding.scientificPad?.memoryAdd?.setOnClickListener {
-            it.isHapticFeedbackEnabled = true
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            val memory = viewModel.getMemory()
-            val result = removeNumberSeparator(getResult())
-            if (result.isNumber() && memory.isNumber()) {
-                val newMemory = memory.toDouble() + result.toDouble()
-                viewModel.setMemory(newMemory.toString())
-            }
-        }
-
-        binding.scientificPad?.memorySub?.setOnClickListener {
-            it.isHapticFeedbackEnabled = true
-            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            val memory = viewModel.getMemory()
-            val result = removeNumberSeparator(getResult())
-            if (result.isNumber() && memory.isNumber()) {
-                val newMemory = memory.toDouble() - result.toDouble()
-                viewModel.setMemory(newMemory.toString())
-            }
-        }
+//        binding.memoryStore?.setOnClickListener {
+//            it.isHapticFeedbackEnabled = true
+//            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+//            val result = removeNumberSeparator(getResult())
+//            if (result.isNumber()) {
+//                Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
+//                viewModel.setMemory(result)
+//            }
+//        }
+//
+//        //memory restore click
+//        binding.scientificPad?.memoryRestore?.setOnClickListener {
+//            it.isHapticFeedbackEnabled = true
+//            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+//            val memory = viewModel.getMemory()
+//            val expression = removeNumberSeparator(getExpression())
+//            var newExpression = handleConstantClick(expression, memory, viewModel.isPrevResult)
+//            viewModel.isPrevResult = false
+//            if (viewModel.getNumberSeparator() != NumberSeparator.OFF) {
+//                newExpression = addNumberSeparator(
+//                    expression = newExpression,
+//                    isIndian = (viewModel.getNumberSeparator() == NumberSeparator.INDIAN)
+//                )
+//            }
+//            setExpression(newExpression)
+//        }
+//
+//        binding.scientificPad?.memoryAdd?.setOnClickListener {
+//            it.isHapticFeedbackEnabled = true
+//            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+//            val memory = viewModel.getMemory()
+//            val result = removeNumberSeparator(getResult())
+//            if (result.isNumber() && memory.isNumber()) {
+//                val newMemory = memory.toDouble() + result.toDouble()
+//                viewModel.setMemory(newMemory.toString())
+//            }
+//        }
+//
+//        binding.scientificPad?.memorySub?.setOnClickListener {
+//            it.isHapticFeedbackEnabled = true
+//            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+//            val memory = viewModel.getMemory()
+//            val result = removeNumberSeparator(getResult())
+//            if (result.isNumber() && memory.isNumber()) {
+//                val newMemory = memory.toDouble() - result.toDouble()
+//                viewModel.setMemory(newMemory.toString())
+//            }
+//        }
 
 //        binding.calculatorPadViewPager?.addScientificPadStateChangeListener {
 //            binding.scientificPad.arrow.animate().rotationBy(180F).setDuration(300).start()
@@ -604,8 +600,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupView() {
         viewModel.updateLaunchStatistics()
-        binding.resultPad?.expression?.setOnTextSizeChangeListener(textSizeChangeListener)
-        binding.resultPad?.expression?.addTextChangedListener(expressionChangeListener)
+        binding.expression?.setOnTextSizeChangeListener(textSizeChangeListener)
+        binding.expression?.addTextChangedListener(expressionChangeListener)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -707,7 +703,7 @@ class MainActivity : AppCompatActivity() {
         val tapTargetSequence = TapTargetSequence(this)
         val delete = TapTarget
             .forView(
-                binding?.delete,
+                binding?.deleteLandscape,
                 getString(R.string.delete_button),
                 getString(R.string.delete_button_desc)
             )
@@ -768,10 +764,10 @@ class MainActivity : AppCompatActivity() {
 //            .descriptionTextColor(R.color.white)
 //            .descriptionTextSize(18)
 //            .cancelable(true)
-        val ms = TapTarget.forView(
-            binding.scientificPad?.memoryStore,
-            getString(R.string.memory_store), getString(R.string.memory_store_desc)
-        )
+//        val ms = TapTarget.forView(
+//            binding.scientificPad?.memoryStore,
+//            getString(R.string.memory_store), getString(R.string.memory_store_desc)
+//        )
             .outerCircleColor(R.color.numPadPrimary)
             .outerCircleAlpha(1f)
             .targetCircleColor(R.color.white)
@@ -781,10 +777,10 @@ class MainActivity : AppCompatActivity() {
             .descriptionTextColor(R.color.textPrimary)
             .descriptionTextSize(18)
             .cancelable(true)
-        val mr = TapTarget.forView(
-            binding.scientificPad?.memoryRestore,
-            getString(R.string.memory_restore), getString(R.string.memory_restore_desc)
-        )
+//        val mr = TapTarget.forView(
+//            binding.scientificPad?.memoryRestore,
+//            getString(R.string.memory_restore), getString(R.string.memory_restore_desc)
+//        )
             .outerCircleColor(R.color.numPadPrimary)
             .outerCircleAlpha(1f)
             .targetCircleColor(R.color.white)
@@ -877,7 +873,7 @@ class MainActivity : AppCompatActivity() {
 //        }
         setExpression("")
         setResult("")
-        getResultEditText().setTextColor(getResultTextColor())
+        getResultEditText()!!.setTextColor(getResultTextColor())
     }
 
     private fun setExpressionAfterEqual(answer: String) {
@@ -885,10 +881,10 @@ class MainActivity : AppCompatActivity() {
         // accounting for how the scale will affect the final position of the text.
         val expression = getExpressionEditText()
         val result = getResultEditText()
-        val resultScale = expression.getVariableTextSize(answer) / result.textSize
+        val resultScale = expression!!.getVariableTextSize(answer) / result!!.textSize
         val resultTranslationX = (1.0f - resultScale) * (result.width / 2.0f - result.paddingEnd)
         val resultTranslationY = (1.0f - resultScale) *
-                (result.height / 2.0f - result.paddingBottom) +
+                (result!!.height / 2.0f - result.paddingBottom) +
                 (expression.bottom - result.bottom) +
                 (result.paddingBottom - expression.paddingBottom)
         val formulaTranslationY = -expression.bottom.toFloat()
@@ -917,12 +913,16 @@ class MainActivity : AppCompatActivity() {
 
             override fun onAnimationEnd(animation: Animator) {
                 // Reset all of the values modified during the animation.
-                result.setTextColor(resultTextColor)
-                result.scaleX = 1.0f
-                result.scaleY = 1.0f
+                if (result != null) {
+                    result.setTextColor(resultTextColor)
+                }
+                if (result != null) {
+                    result.scaleX = 1.0f
+                }
+                result!!.scaleY = 1.0f
                 result.translationX = 0.0f
                 result.translationY = 0.0f
-                expression.translationY = 0.0f
+                expression!!.translationY = 0.0f
 
                 // Finally update the formula to use the current result.
                 expression.setText(answer)
@@ -934,28 +934,28 @@ class MainActivity : AppCompatActivity() {
         animatorSet.start()
     }
 
-    private fun getExpressionEditText(): CalculatorEditText {
-        return binding.resultPad!!.expression
+    private fun getExpressionEditText(): CalculatorEditText? {
+        return binding.expression
     }
 
-    private fun getResultEditText(): CalculatorEditText {
-        return binding.resultPad!!.result
+    private fun getResultEditText(): CalculatorEditText? {
+        return binding.result
     }
 
     private fun setExpression(expression: String) {
-        getExpressionEditText().setText(expression)
+        getExpressionEditText()?.setText(expression)
     }
 
     private fun setResult(result: String) {
-        getResultEditText().setText(result)
+        getResultEditText()?.setText(result)
     }
 
     private fun getExpression(): String {
-        return binding.resultPad!!.expression.text.toString().trim()
+        return binding.expression?.text.toString().trim()
     }
 
     private fun getResult(): String {
-        return binding.resultPad!!.result.text.toString().trim()
+        return binding.result?.text.toString().trim()
     }
 
     override fun onResume() {
@@ -973,7 +973,9 @@ class MainActivity : AppCompatActivity() {
         if (prefUtil!!.getInt("textColor", 0) == 0) {
 //            Toast.makeText(applicationContext, "preference are null", Toast.LENGTH_SHORT).show()
         } else {
+
             changeTextColor()
+
 //            Toast.makeText(applicationContext, "preference are not null", Toast.LENGTH_SHORT).show()
         }
 
@@ -982,16 +984,16 @@ class MainActivity : AppCompatActivity() {
         constraintlayout1 = prefUtil!!.getInt("BackgroundColor", 0)
         if (prefUtil!!.getInt("BackgroundColor", 0) == 0) {
         } else {
-            activity_main!!.setBackgroundColor(constraintlayout1!!)
-            expression!!.setBackgroundColor(constraintlayout1!!)
-            result!!.setBackgroundColor(constraintlayout1!!)
+            binding.activityMain!!.setBackgroundColor(constraintlayout1!!)
+            binding.expression!!.setBackgroundColor(constraintlayout1!!)
+            binding.result!!.setBackgroundColor(constraintlayout1!!)
             if (resources.configuration.orientation == ORIENTATION_PORTRAIT) {
-                portraitNumPad!!.setBackgroundColor(constraintlayout1!!)
-                resultPad_portrait!!.setBackgroundColor(constraintlayout1!!)
+                binding.portraitNumPad!!.setBackgroundColor(constraintlayout1!!)
+//                resultPad_portrait!!.setBackgroundColor(constraintlayout1!!)
 
             } else {
-                binding.resultPad.layCalIcon!!.setBackgroundColor(constraintlayout1!!)
-                binding.resultPad.resultPadLand!!.setBackgroundColor(constraintlayout1!!)
+                binding.layCalIcon?.setBackgroundColor(constraintlayout1!!)
+                binding.resultPadLand!!.setBackgroundColor(constraintlayout1!!)
 //                landScapeLinearLayout!!.setBackgroundColor(constraintlayout1!!)
 //                ScrollViewLandScape!!.setBackgroundColor(constraintlayout1!!)
             }
