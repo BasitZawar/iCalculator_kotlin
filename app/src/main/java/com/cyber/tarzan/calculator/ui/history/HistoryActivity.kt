@@ -237,7 +237,7 @@ class HistoryActivity : BaseActivity<ActivityHistoryBinding>() {
 
         val tv_label_yes = dialogView.findViewById<TextView>(R.id.tv_label_yes)
         tv_label_yes.setOnClickListener {
-            showInterstitialAdSetting()
+//            showInterstitialAdSetting()
             viewModel.clearHistory()
             Toast.makeText(this, "History deleted successfully", Toast.LENGTH_SHORT).show()
             alertDialog.dismiss()

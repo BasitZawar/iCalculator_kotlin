@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/activity_main"
     android:background="@color/black"
     tools:context=".ui.main.MainActivity">
 
@@ -13,8 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="vertical"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/resultPad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +23,6 @@
         layout="@layout/result_pad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/LinearLayout_icons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,12 +32,12 @@
         android:id="@+id/LinearLayout_icons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/calculatorPadViewPager"
-        app:layout_constraintTop_toBottomOf="@+id/resultPad"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultPad">
 
         <ImageButton
             android:id="@+id/history_icon"
@@ -50,7 +47,7 @@
             android:layout_marginStart="20dp"
             android:layout_weight="5"
             android:background="@drawable/digit_button_shape"
-            android:src="@drawable/history_icon"
+            android:src="@drawable/ic_history"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -71,7 +68,6 @@
             android:id="@+id/delete"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginEnd="10dp"
             android:background="@drawable/digit_button_shape"
             android:src="@drawable/ic_arrow_back"
             app:backgroundTint="@null"
@@ -80,15 +76,14 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/calculatorPadViewPager"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LinearLayout_icons"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout_icons">
 
         <include
             android:id="@+id/numPad"

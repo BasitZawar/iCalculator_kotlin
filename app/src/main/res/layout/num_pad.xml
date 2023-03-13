@@ -10,8 +10,10 @@
         android:id="@+id/portraitNumPad"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
         android:gravity="bottom"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp">
 
         <LinearLayout
             android:id="@+id/firstRow"
@@ -392,6 +394,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/fifthRow"
             android:layout_width="match_parent"
@@ -473,83 +476,83 @@
 
 
         <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:id="@+id/fifthRow"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="70dp"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/fourthRow">-->
+        <!--            android:id="@+id/fifthRow"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="70dp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/fourthRow">-->
 
-<!--            <ImageView-->
-<!--                android:id="@+id/scientificCal_Icon"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="0dp"-->
-<!--                android:layout_marginStart="5dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:gravity="center"-->
-<!--                android:src="@drawable/ic_sci_calcul"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toStartOf="@+id/decimal"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
+        <!--            <ImageView-->
+        <!--                android:id="@+id/scientificCal_Icon"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="0dp"-->
+        <!--                android:layout_marginStart="5dp"-->
+        <!--                android:layout_marginTop="10dp"-->
+        <!--                android:gravity="center"-->
+        <!--                android:src="@drawable/ic_sci_calcul"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintEnd_toStartOf="@+id/decimal"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--            <com.google.android.material.button.MaterialButton-->
-<!--                android:id="@+id/decimal"-->
-<!--                style="@style/Widget.CalculatorPlus.NumPad.Primary"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:background="@drawable/digit_button_shape"-->
-<!--                android:text="."-->
-<!--                android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"-->
-<!--                android:textColor="@color/white"-->
-<!--                app:backgroundTint="@null"-->
-<!--                app:layout_constraintEnd_toStartOf="@id/zero"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/scientificCal_Icon"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                tools:ignore="HardcodedText" />-->
+        <!--            <com.google.android.material.button.MaterialButton-->
+        <!--                android:id="@+id/decimal"-->
+        <!--                style="@style/Widget.CalculatorPlus.NumPad.Primary"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:background="@drawable/digit_button_shape"-->
+        <!--                android:text="."-->
+        <!--                android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"-->
+        <!--                android:textColor="@color/white"-->
+        <!--                app:backgroundTint="@null"-->
+        <!--                app:layout_constraintEnd_toStartOf="@id/zero"-->
+        <!--                app:layout_constraintStart_toEndOf="@+id/scientificCal_Icon"-->
+        <!--                app:layout_constraintTop_toTopOf="parent"-->
+        <!--                tools:ignore="HardcodedText" />-->
 
-<!--            <com.google.android.material.button.MaterialButton-->
-<!--                android:id="@+id/zero"-->
-<!--                style="@style/Widget.CalculatorPlus.NumPad.Primary"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:background="@drawable/digit_button_shape"-->
-<!--                android:text="0"-->
-<!--                android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"-->
-<!--                android:textColor="@color/white"-->
-<!--                app:backgroundTint="@null"-->
-<!--                app:layout_constraintEnd_toStartOf="@id/equal"-->
-<!--                app:layout_constraintStart_toEndOf="@id/decimal"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                tools:ignore="HardcodedText" />-->
+        <!--            <com.google.android.material.button.MaterialButton-->
+        <!--                android:id="@+id/zero"-->
+        <!--                style="@style/Widget.CalculatorPlus.NumPad.Primary"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:background="@drawable/digit_button_shape"-->
+        <!--                android:text="0"-->
+        <!--                android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"-->
+        <!--                android:textColor="@color/white"-->
+        <!--                app:backgroundTint="@null"-->
+        <!--                app:layout_constraintEnd_toStartOf="@id/equal"-->
+        <!--                app:layout_constraintStart_toEndOf="@id/decimal"-->
+        <!--                app:layout_constraintTop_toTopOf="parent"-->
+        <!--                tools:ignore="HardcodedText" />-->
 
-<!--            <com.google.android.material.button.MaterialButton-->
-<!--                android:id="@+id/equal"-->
-<!--                style="@style/Widget.CalculatorPlus.NumPad.Primary"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:background="@drawable/operator_button_shape"-->
-<!--                android:text="="-->
-<!--                android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"-->
-<!--                android:textColor="@color/white"-->
-<!--                app:backgroundTint="@null"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toEndOf="@id/zero"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                tools:ignore="HardcodedText" />-->
+        <!--            <com.google.android.material.button.MaterialButton-->
+        <!--                android:id="@+id/equal"-->
+        <!--                style="@style/Widget.CalculatorPlus.NumPad.Primary"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:background="@drawable/operator_button_shape"-->
+        <!--                android:text="="-->
+        <!--                android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"-->
+        <!--                android:textColor="@color/white"-->
+        <!--                app:backgroundTint="@null"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintStart_toEndOf="@id/zero"-->
+        <!--                app:layout_constraintTop_toTopOf="parent"-->
+        <!--                tools:ignore="HardcodedText" />-->
 
-<!--            <View-->
-<!--                android:layout_width="1dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:background="?attr/border"-->
-<!--                android:visibility="gone"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toStartOf="@id/equal"-->
-<!--                app:layout_constraintStart_toEndOf="@id/equal"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
+        <!--            <View-->
+        <!--                android:layout_width="1dp"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:background="?attr/border"-->
+        <!--                android:visibility="gone"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintEnd_toStartOf="@id/equal"-->
+        <!--                app:layout_constraintStart_toEndOf="@id/equal"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+        <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
     </LinearLayout>
 
 

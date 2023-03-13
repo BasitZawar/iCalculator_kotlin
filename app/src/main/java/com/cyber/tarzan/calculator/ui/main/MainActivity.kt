@@ -1,6 +1,7 @@
 package com.cyber.tarzan.calculator.ui.main
 
 import android.animation.*
+import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -41,6 +42,9 @@ import com.getkeepsafe.taptargetview.TapTargetSequence
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.material.button.MaterialButton
+import com.google.android.play.core.review.ReviewInfo
+import com.google.android.play.core.review.ReviewManager
+import com.google.android.play.core.review.ReviewManagerFactory
 import com.google.type.Color
 import dagger.hilt.android.AndroidEntryPoint
 import petrov.kristiyan.colorpicker.BuildConfig
@@ -92,7 +96,9 @@ class MainActivity : AppCompatActivity() {
     var nine: TextView? = null
     var zero: TextView? = null
     var dot: TextView? = null
+    private val reviewManager: ReviewManager? = null
 
+    @SuppressLint("SupportAnnotationUsage")
     override fun onCreate(savedInstanceState: Bundle?) {
 //        val appPreference = SharedPreference(this)
 //        val accentTheme =
@@ -102,6 +108,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 //        refreshAd()
+
+        val reviewManager = ReviewManagerFactory.create(this)
+        val request = reviewManager.requestReviewFlow()
+        request.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val reviewInfo = task.result
+                setInAppReview(reviewInfo)
+            } else {
+                Log.e("application", "onCreate: " + task.result)
+            }
+        }
+
 
 //        mainScreenBannerLayout = findViewById(R.id.mainScreenBannerLayout)
 //        setContentView(R.layout.activity_main)
@@ -1198,6 +1216,12 @@ class MainActivity : AppCompatActivity() {
                 )
             )
         }
+    }
+
+    // in app review
+    private fun setInAppReview(reviewInfo: ReviewInfo) {
+        val flow = reviewManager?.launchReviewFlow(this, reviewInfo)
+        flow?.addOnCompleteListener { }
     }
 
     //share app

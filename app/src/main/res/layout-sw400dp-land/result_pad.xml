@@ -24,7 +24,6 @@
             android:layout_height="70dp"
             android:layout_marginStart="10dp"
             android:background="@drawable/ic_sci_calcul"
-            android:text="Back"
             app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="@id/result"
             app:layout_constraintStart_toStartOf="parent"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
@@ -21,16 +21,16 @@
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingHorizontal="10dp"
         android:layout_below="@id/resultPad"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/resultPad"
         android:orientation="horizontal"
-        android:weightSum="8">
+        android:paddingHorizontal="10dp"
+        android:weightSum="8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/resultPad">
         //column 1
 
         <LinearLayout
@@ -62,8 +62,7 @@
                 android:text="sin"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                app:backgroundTint="@null"
-                />
+                app:backgroundTint="@null" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/exponential"
@@ -74,8 +73,7 @@
                 android:text="e"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                app:backgroundTint="@null"
-                />
+                app:backgroundTint="@null" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/squareRoot"
@@ -86,8 +84,7 @@
                 android:text="\u221A"
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
-                app:backgroundTint="@null"
-                />
+                app:backgroundTint="@null" />
 
         </LinearLayout>
         //column 2
@@ -104,11 +101,11 @@
                 style="@style/Widget.CalculatorPlus.NumPad.Primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="@drawable/other_buttons"
                 android:text="!"
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
-                android:layout_weight="1"
                 app:backgroundTint="@null"
 
                 />
@@ -545,6 +542,8 @@
                 style="@style/Widget.CalculatorPlus.NumPad.Primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_weight="1"
                 android:background="@drawable/ic_arith_bg"
                 android:text="\u00D7"
@@ -1211,4 +1210,4 @@
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

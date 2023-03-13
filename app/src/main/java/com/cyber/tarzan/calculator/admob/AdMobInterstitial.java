@@ -20,6 +20,7 @@ public class AdMobInterstitial {
     static Context mContext;
     static String interstitial_id;
     static String logTag = "inter_";
+    public static boolean isInterstitialShowing = false;
 
     public static void loadInterstitialAd(Context your_activity_context, String your_interstitial_id) {
 
@@ -58,6 +59,7 @@ public class AdMobInterstitial {
         if (isAlreadyLoaded) {
             mInterstitialAd.show(yourActivity);
             isAlreadyLoaded = false;
+            isInterstitialShowing = true;
 
             Log.d(logTag, "Interstitial Shown.");
             mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
@@ -66,19 +68,18 @@ public class AdMobInterstitial {
                     super.onAdDismissedFullScreenContent();
 
                     InterstitialClosedListenerImplementer.onInterstitialClosedCalled();
-
                     if (!isBackPressed)
                         loadInterstitialAd(mContext, AdIds.INSTANCE.admobInterstitialIdHome());
                     Log.d(logTag, "Interstitial Closed.");
+                    isInterstitialShowing = false;
                 }
 
                 @Override
                 public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
                     super.onAdFailedToShowFullScreenContent(adError);
-
                     InterstitialClosedListenerImplementer.onInterstitialFailedToShowCalled();
                     Log.d(logTag, "Interstitial Closed.");
-
+                    isInterstitialShowing = false;
                 }
             });
         } else {

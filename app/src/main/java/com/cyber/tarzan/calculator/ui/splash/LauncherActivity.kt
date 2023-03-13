@@ -84,7 +84,6 @@ class LauncherActivity : AppCompatActivity() {
             )
 //                Objects.requireNonNull(instance)
 //                    ?.showAdMobBanner(this@SplashScreen, this, findViewById(R.id.bannerLayout))
-
         }
 
 
@@ -100,7 +99,6 @@ class LauncherActivity : AppCompatActivity() {
             showInterstitialAd()
 
         }
-
 //        refreshAd()
     }
 
