@@ -18,11 +18,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="10dp"
         android:layout_below="@id/resultPad"
         android:layout_alignParentBottom="true"
         android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/resultPad"
         android:orientation="horizontal"
         android:weightSum="8">
         //column 1
@@ -45,9 +51,6 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
-                app:layout_constraintEnd_toStartOf="@id/factorial"
-                app:layout_constraintStart_toEndOf="@+id/AC"
-                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
             <com.google.android.material.button.MaterialButton
@@ -60,10 +63,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/cos"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/exponential"
@@ -75,10 +75,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/log"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/squareRoot"
@@ -90,10 +87,7 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/cubeRoot"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                />
 
         </LinearLayout>
         //column 2
@@ -110,15 +104,14 @@
                 style="@style/Widget.CalculatorPlus.NumPad.Primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:background="@drawable/other_buttons"
                 android:text="!"
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
+                android:layout_weight="1"
                 app:backgroundTint="@null"
-                app:layout_constraintEnd_toStartOf="@id/divide"
-                app:layout_constraintStart_toEndOf="@id/percent"
-                app:layout_constraintTop_toTopOf="parent" />
+
+                />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/cos"
@@ -261,7 +254,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/other_buttons"
+                android:background="@drawable/digit_button_shape"
                 android:text="("
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
@@ -502,10 +495,6 @@
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline6"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/minus"
-                app:layout_constraintStart_toEndOf="@id/two"
-                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
 
@@ -513,7 +502,6 @@
                 android:id="@+id/equal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:layout_weight="1"
                 android:background="@drawable/digit_button_shape"
                 android:gravity="center"
@@ -542,7 +530,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/operator_button_shape"
+                android:background="@drawable/ic_arith_bg"
                 android:text="\u00F7"
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline5"
                 android:textColor="@color/white"
@@ -558,7 +546,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/operator_button_shape"
+                android:background="@drawable/ic_arith_bg"
                 android:text="\u00D7"
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline5"
                 android:textColor="@color/white"
@@ -575,7 +563,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/operator_button_shape"
+                android:background="@drawable/ic_arith_bg"
                 android:stateListAnimator="@null"
                 android:text="\u2212"
                 android:textAppearance="@style/TextAppearance.CalculatorPlus.Headline5"
@@ -592,7 +580,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/operator_button_shape"
+
+                android:background="@drawable/ic_arith_bg"
                 android:text="+"
                 app:backgroundTint="@null"
                 app:layout_constraintBottom_toBottomOf="parent"

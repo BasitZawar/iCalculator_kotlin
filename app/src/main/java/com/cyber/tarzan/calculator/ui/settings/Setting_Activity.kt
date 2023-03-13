@@ -144,7 +144,7 @@ class Setting_Activity : AppCompatActivity() {
                         } else {
                             Toast.makeText(
                                 applicationContext,
-                                "color should not be same as text color",
+                                "Background color should not be same as text color",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
@@ -173,7 +173,7 @@ class Setting_Activity : AppCompatActivity() {
                         }else{
                             Toast.makeText(
                                 applicationContext,
-                                "color should not be same as background color",
+                                "Text color should not be same as background color",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }

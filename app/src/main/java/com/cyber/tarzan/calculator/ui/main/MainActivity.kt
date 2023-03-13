@@ -969,7 +969,7 @@ class MainActivity : AppCompatActivity() {
             result!!.setBackgroundColor(constraintlayout1!!)
             if (resources.configuration.orientation == ORIENTATION_PORTRAIT) {
                 portraitNumPad!!.setBackgroundColor(constraintlayout1!!)
-//                resultPad_portrait!!.setBackgroundColor(constraintlayout1!!)
+                resultPad_portrait!!.setBackgroundColor(constraintlayout1!!)
 
             } else {
                 binding.resultPad.layCalIcon!!.setBackgroundColor(constraintlayout1!!)

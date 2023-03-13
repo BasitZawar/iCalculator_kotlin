@@ -17,6 +17,15 @@
     <!--        app:layout_constraintStart_toStartOf="parent"-->
     <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
+    <LinearLayout
+        android:id="@+id/resultPad_portrait"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
     <com.cyber.tarzan.calculator.ui.view.CalculatorEditText
         android:id="@+id/expression"
         android:layout_width="match_parent"
@@ -59,6 +68,6 @@
         custom:maxTextSize="30sp"
         custom:minTextSize="20sp"
         tools:text="50258" />
-
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
