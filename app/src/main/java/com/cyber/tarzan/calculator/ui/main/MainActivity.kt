@@ -18,7 +18,9 @@ import android.util.TypedValue
 import android.view.*
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AnimationUtils
-import android.widget.*
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -39,7 +41,6 @@ import com.getkeepsafe.taptargetview.TapTarget
 import com.getkeepsafe.taptargetview.TapTargetSequence
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.nativead.NativeAd
-import com.google.android.material.button.MaterialButton
 import com.google.android.play.core.review.ReviewInfo
 import com.google.android.play.core.review.ReviewManager
 import com.google.android.play.core.review.ReviewManagerFactory
@@ -74,7 +75,6 @@ class MainActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 val reviewInfo = task.result
                 setInAppReview(reviewInfo)
-
             } else {
                 Log.e("application2", "onCreate: " + task.result)
             }
@@ -239,7 +239,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    //today
     private fun changeTextColor() {
         binding.one!!.setTextColor(textColorMainActivity!!)
         binding.two!!.setTextColor(textColorMainActivity!!)
@@ -878,7 +877,6 @@ class MainActivity : AppCompatActivity() {
                 binding.resultPadLand!!.setBackgroundColor(constraintlayout1!!)
             }
         }
-
         //=================================
         var savedExpression = viewModel.getSavedExpression()
         if (viewModel.getNumberSeparator() != NumberSeparator.OFF) {
