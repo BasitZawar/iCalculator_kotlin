@@ -55,9 +55,9 @@ public class AppOpenManager implements LifecycleObserver, Application.ActivityLi
      */
     @OnLifecycleEvent(ON_START)
     public void onStart() {
-//        if (MainActivity.Companion.getIslandscape() != true) {
+        if (MainActivity.Companion.getIslandscape() == true) {
             showAdIfAvailable();
-//        }
+        }
     }
 
     /**

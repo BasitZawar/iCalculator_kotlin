@@ -231,9 +231,7 @@ class MainActivity : AppCompatActivity() {
         binding.scientificCalIcon?.setOnClickListener {
             if (resources.configuration.orientation == ORIENTATION_PORTRAIT) {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE;
-                islandscape = true
             } else {
-                islandscape = false
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
             }
         }
@@ -841,7 +839,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-
+        if (resources.configuration.orientation == ORIENTATION_PORTRAIT) {
+            islandscape = true
+        } else {
+            islandscape = false
+        }
 //        Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show()
 
     }

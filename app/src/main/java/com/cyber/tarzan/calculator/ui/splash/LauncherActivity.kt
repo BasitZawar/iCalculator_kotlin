@@ -59,6 +59,8 @@ class LauncherActivity : AppCompatActivity() {
         binding = ActivityLauncherBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        MainActivity.islandscape = true
+
         val manager: PackageManager = packageManager
         val info: PackageInfo = manager.getPackageInfo(
             packageName, 0
@@ -94,7 +96,7 @@ class LauncherActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             binding.progressBar.isVisible = false
             binding.btnGetStarted.isVisible = true
-        }, 3000)
+        }, 4000)
         binding.btnGetStarted.setOnClickListener {
             showInterstitialAd()
 
@@ -105,6 +107,7 @@ class LauncherActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        MainActivity.islandscape = true
         checkNewAppVersionState()
     }
 
