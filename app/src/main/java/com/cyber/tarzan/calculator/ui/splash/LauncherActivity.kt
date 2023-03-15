@@ -22,11 +22,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.cyber.tarzan.calculator.R
-import com.cyber.tarzan.calculator.admob.AdIds.admobInterstitialIdHome
+import com.cyber.tarzan.calculator.admob.AdIds
 import com.cyber.tarzan.calculator.admob.AdIds.getAdmobNativeId
-import com.cyber.tarzan.calculator.admob.AdMobInterstitial
-import com.cyber.tarzan.calculator.admob.InterstitialClosedListener
-import com.cyber.tarzan.calculator.admob.InterstitialClosedListenerImplementer
+import com.cyber.tarzan.calculator.admob_new_implementation.InterstitialClass
 import com.cyber.tarzan.calculator.databinding.ActivityLauncherBinding
 import com.cyber.tarzan.calculator.ui.main.MainActivity
 import com.cyber.tarzan.calculator.util.InfoUtil
@@ -80,10 +78,10 @@ class LauncherActivity : AppCompatActivity() {
 
             MobileAds.initialize(this)
 
-            AdMobInterstitial.loadInterstitialAd(
-                this@LauncherActivity,
-                admobInterstitialIdHome()
-            )
+//            AdMobInterstitial.loadInterstitialAd(
+//                this@LauncherActivity,
+//                admobInterstitialIdHome()
+//            )
 //                Objects.requireNonNull(instance)
 //                    ?.showAdMobBanner(this@SplashScreen, this, findViewById(R.id.bannerLayout))
         }
@@ -97,10 +95,16 @@ class LauncherActivity : AppCompatActivity() {
             binding.btnGetStarted.isVisible = true
         }, 4000)
         binding.btnGetStarted.setOnClickListener {
-            showInterstitialAd()
-
+            showInterstitialAdOnGetStarted()
+//            showInterstitialAd()
         }
 //        refreshAd()
+    }
+
+    private fun showInterstitialAdOnGetStarted() {
+        InterstitialClass.request_interstitial(
+            this, AdIds.admobInterstitialIdHome()
+        ) { startActivity(Intent(this@LauncherActivity, MainActivity::class.java)) }
     }
 
 
@@ -110,26 +114,26 @@ class LauncherActivity : AppCompatActivity() {
         checkNewAppVersionState()
     }
 
-    private fun showInterstitialAd() {
-        if (AdMobInterstitial.isAlreadyLoaded) {
-            AdMobInterstitial.showInterstitial(this@LauncherActivity, false)
-            InterstitialClosedListenerImplementer.setOnInterstitialClosedMaster(object :
-                InterstitialClosedListener {
-                override fun onInterstitialClosed() {
-                    startActivity(Intent(this@LauncherActivity, MainActivity::class.java))
-//                    Log.d("TAG", "onInterstitialClosed: move to next screen")
-                }
-
-                override fun onInterstitialFailedToShow() {
-                    startActivity(Intent(this@LauncherActivity, MainActivity::class.java))
-//                    Log.d("TAG", "onInterstitialFailedToShow: move to next screen")
-                }
-            })
-        } else {
-            startActivity(Intent(this@LauncherActivity, MainActivity::class.java))
-            Log.d("TAG", "onCreate: move to next screen")
-        }
-    }
+//    private fun showInterstitialAd() {
+//        if (AdMobInterstitial.isAlreadyLoaded) {
+//            AdMobInterstitial.showInterstitial(this@LauncherActivity, false)
+//            InterstitialClosedListenerImplementer.setOnInterstitialClosedMaster(object :
+//                InterstitialClosedListener {
+//                override fun onInterstitialClosed() {
+//                    startActivity(Intent(this@LauncherActivity, MainActivity::class.java))
+////                    Log.d("TAG", "onInterstitialClosed: move to next screen")
+//                }
+//
+//                override fun onInterstitialFailedToShow() {
+//                    startActivity(Intent(this@LauncherActivity, MainActivity::class.java))
+////                    Log.d("TAG", "onInterstitialFailedToShow: move to next screen")
+//                }
+//            })
+//        } else {
+//            startActivity(Intent(this@LauncherActivity, MainActivity::class.java))
+//            Log.d("TAG", "onCreate: move to next screen")
+//        }
+//    }
 
     override fun onDestroy() {
         super.onDestroy()

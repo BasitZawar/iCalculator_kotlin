@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.cyber.tarzan.calculator.R
 import com.cyber.tarzan.calculator.admob.*
+import com.cyber.tarzan.calculator.admob_new_implementation.InterstitialClass
 import com.cyber.tarzan.calculator.database.model.toDomain
 import com.cyber.tarzan.calculator.databinding.ActivityHistoryBinding
 import com.cyber.tarzan.calculator.history.HistoryAdapterItem
@@ -22,6 +23,7 @@ import com.cyber.tarzan.calculator.ui.history.adapter.HistoryAdapter
 import com.cyber.tarzan.calculator.ui.history.viewmodel.HistoryViewModel
 import com.cyber.tarzan.calculator.ui.main.MainActivity
 import com.cyber.tarzan.calculator.ui.main.helper.removeNumberSeparator
+import com.cyber.tarzan.calculator.ui.settings.Setting_Activity
 import com.cyber.tarzan.calculator.util.PrefUtil
 import com.cyber.tarzan.calculator.util.visible
 import com.google.android.gms.ads.*
@@ -238,6 +240,7 @@ class HistoryActivity : BaseActivity<ActivityHistoryBinding>() {
         val tv_label_yes = dialogView.findViewById<TextView>(R.id.tv_label_yes)
         tv_label_yes.setOnClickListener {
 //            showInterstitialAdSetting()
+            showInterstitialAdOnOk()
             viewModel.clearHistory()
             Toast.makeText(this, "History deleted successfully", Toast.LENGTH_SHORT).show()
             alertDialog.dismiss()
@@ -333,23 +336,29 @@ class HistoryActivity : BaseActivity<ActivityHistoryBinding>() {
         }
     }
 
-    private fun showInterstitialAdSetting() {
-        if (AdMobInterstitial.isAlreadyLoaded) {
-            AdMobInterstitial.showInterstitial(this@HistoryActivity, false)
-            InterstitialClosedListenerImplementer.setOnInterstitialClosedMaster(object :
-                InterstitialClosedListener {
-                override fun onInterstitialClosed() {
-//                    if (binding.historyIcon!!.isClickable)
-                    startActivity(Intent(this@HistoryActivity, MainActivity::class.java))
-                }
-
-                override fun onInterstitialFailedToShow() {
-                    startActivity(Intent(this@HistoryActivity, MainActivity::class.java))
-                }
-            })
-        } else {
-            startActivity(Intent(this@HistoryActivity, MainActivity::class.java))
-            Log.d("TAG", "onCreate: move to next screen")
-        }
+    private fun showInterstitialAdOnOk() {
+        InterstitialClass.request_interstitial(
+            this, AdIds.admobInterstitialIdHome()
+        ) { startActivity(Intent(this@HistoryActivity, MainActivity::class.java)) }
     }
+
+//    private fun showInterstitialAdSetting() {
+//        if (AdMobInterstitial.isAlreadyLoaded) {
+//            AdMobInterstitial.showInterstitial(this@HistoryActivity, false)
+//            InterstitialClosedListenerImplementer.setOnInterstitialClosedMaster(object :
+//                InterstitialClosedListener {
+//                override fun onInterstitialClosed() {
+////                    if (binding.historyIcon!!.isClickable)
+//                    startActivity(Intent(this@HistoryActivity, MainActivity::class.java))
+//                }
+//
+//                override fun onInterstitialFailedToShow() {
+//                    startActivity(Intent(this@HistoryActivity, MainActivity::class.java))
+//                }
+//            })
+//        } else {
+//            startActivity(Intent(this@HistoryActivity, MainActivity::class.java))
+//            Log.d("TAG", "onCreate: move to next screen")
+//        }
+//    }
 }

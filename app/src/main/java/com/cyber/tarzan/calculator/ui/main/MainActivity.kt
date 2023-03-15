@@ -26,7 +26,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.cyber.tarzan.calculator.R
-import com.cyber.tarzan.calculator.admob.*
+import com.cyber.tarzan.calculator.admob.AdIds
+import com.cyber.tarzan.calculator.admob.AdsManager
+import com.cyber.tarzan.calculator.admob_new_implementation.InterstitialClass
 import com.cyber.tarzan.calculator.databinding.ActivityMainBinding
 import com.cyber.tarzan.calculator.history.History
 import com.cyber.tarzan.calculator.ui.history.HistoryActivity
@@ -108,7 +110,6 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "onCreate: Banner add shown")
 
 //        }
-
         prefUtil = PrefUtil(applicationContext)
 
         if (resources.configuration.orientation == ORIENTATION_LANDSCAPE) {
@@ -212,7 +213,7 @@ class MainActivity : AppCompatActivity() {
         //history icon
         binding.historyIcon?.setOnClickListener {
 //            if (isHistoryAvailable) {
-            showInterstitialAdHistory()
+            showInterstitialAdHistory1()
 //            } else {
 //                startActivity(Intent(this@MainActivity, HistoryActivity::class.java))
 //
@@ -235,6 +236,19 @@ class MainActivity : AppCompatActivity() {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
             }
         }
+    }
+
+    private fun showInterstitialAdHistory1() {
+        InterstitialClass.request_interstitial(
+            this,
+            AdIds.admobInterstitialIdHome()
+        ) { startActivity(Intent(this@MainActivity, HistoryActivity::class.java)) }
+    }
+
+    private fun showInterstitialAdSetting1() {
+        InterstitialClass.request_interstitial(
+            this, AdIds.admobInterstitialIdHome()
+        ) { startActivity(Intent(this@MainActivity, Setting_Activity::class.java)) }
     }
 
     private fun changeTextColor() {
@@ -901,44 +915,45 @@ class MainActivity : AppCompatActivity() {
 //    override fun getViewBinding(inflater: LayoutInflater) = ActivityMainBinding.inflate(inflater)
 
     //show admob interstitial ad
-    private fun showInterstitialAdHistory() {
-        if (AdMobInterstitial.isAlreadyLoaded) {
-            AdMobInterstitial.showInterstitial(this@MainActivity, false)
-            InterstitialClosedListenerImplementer.setOnInterstitialClosedMaster(object :
-                InterstitialClosedListener {
-                override fun onInterstitialClosed() {
-                    startActivity(Intent(this@MainActivity, HistoryActivity::class.java))
-                }
-
-                override fun onInterstitialFailedToShow() {
-                    startActivity(Intent(this@MainActivity, HistoryActivity::class.java))
-                }
-            })
-        } else {
-            startActivity(Intent(this@MainActivity, HistoryActivity::class.java))
-            Log.d("TAG", "onCreate: move to next screen")
-        }
-    }
-
-    private fun showInterstitialAdSetting() {
-        if (AdMobInterstitial.isAlreadyLoaded) {
-            AdMobInterstitial.showInterstitial(this@MainActivity, false)
-            InterstitialClosedListenerImplementer.setOnInterstitialClosedMaster(object :
-                InterstitialClosedListener {
-                override fun onInterstitialClosed() {
-                    if (binding.historyIcon!!.isClickable)
-                        startActivity(Intent(this@MainActivity, Setting_Activity::class.java))
-                }
-
-                override fun onInterstitialFailedToShow() {
-                    startActivity(Intent(this@MainActivity, Setting_Activity::class.java))
-                }
-            })
-        } else {
-            startActivity(Intent(this@MainActivity, Setting_Activity::class.java))
-            Log.d("TAG", "onCreate: move to next screen")
-        }
-    }
+//    private fun showInterstitialAdHistory() {
+//        if (AdMobInterstitial.isAlreadyLoaded) {
+//            AdMobInterstitial.showInte
+//            rstitial(this@MainActivity, false)
+//            InterstitialClosedListenerImplementer.setOnInterstitialClosedMaster(object :
+//                InterstitialClosedListener {
+//                override fun onInterstitialClosed() {
+//                    startActivity(Intent(this@MainActivity, HistoryActivity::class.java))
+//                }
+//
+//                override fun onInterstitialFailedToShow() {
+//                    startActivity(Intent(this@MainActivity, HistoryActivity::class.java))
+//                }
+//            })
+//        } else {
+//            startActivity(Intent(this@MainActivity, HistoryActivity::class.java))
+//            Log.d("TAG", "onCreate: move to next screen")
+//        }
+//    }
+//
+//    private fun showInterstitialAdSetting() {
+//        if (AdMobInterstitial.isAlreadyLoaded) {
+//            AdMobInterstitial.showInterstitial(this@MainActivity, false)
+//            InterstitialClosedListenerImplementer.setOnInterstitialClosedMaster(object :
+//                InterstitialClosedListener {
+//                override fun onInterstitialClosed() {
+//                    if (binding.historyIcon!!.isClickable)
+//                        startActivity(Intent(this@MainActivity, Setting_Activity::class.java))
+//                }
+//
+//                override fun onInterstitialFailedToShow() {
+//                    startActivity(Intent(this@MainActivity, Setting_Activity::class.java))
+//                }
+//            })
+//        } else {
+//            startActivity(Intent(this@MainActivity, Setting_Activity::class.java))
+//            Log.d("TAG", "onCreate: move to next screen")
+//        }
+//    }
 
     companion object {
         var isHistoryAvailable: Boolean = false
@@ -1036,7 +1051,8 @@ class MainActivity : AppCompatActivity() {
         //
         val btn_more = dialogView.findViewById<TextView>(R.id.tv_More)
         btn_more.setOnClickListener {
-            showInterstitialAdSetting()
+//            showInterstitialAdSetting()
+            showInterstitialAdSetting1()
             alertDialog.dismiss()
         }
         val btn_rate = dialogView.findViewById<TextView>(R.id.tv_RateApp)
@@ -1053,6 +1069,7 @@ class MainActivity : AppCompatActivity() {
             moreApps()
         }
     }
+
 
     fun moreApps() {
         try {

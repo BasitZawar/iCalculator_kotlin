@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.cyber.tarzan.calculator.R
 import com.cyber.tarzan.calculator.admob.AdIds
-import com.cyber.tarzan.calculator.admob.AdMobInterstitial
 import com.cyber.tarzan.calculator.admob.InterstitialClosedListener
 import com.cyber.tarzan.calculator.admob.InterstitialClosedListenerImplementer
 import com.cyber.tarzan.calculator.databinding.ActivitySettingBinding
@@ -304,24 +303,24 @@ class Setting_Activity : AppCompatActivity() {
 
     //show admob interstitial ad
 
-    private fun showInterstitialAdHistory() {
-        if (AdMobInterstitial.isAlreadyLoaded) {
-            AdMobInterstitial.showInterstitial(this@Setting_Activity, false)
-            InterstitialClosedListenerImplementer.setOnInterstitialClosedMaster(object :
-                InterstitialClosedListener {
-                override fun onInterstitialClosed() {
-                    startActivity(Intent(this@Setting_Activity, HistoryActivity::class.java))
-                }
-
-                override fun onInterstitialFailedToShow() {
-                    startActivity(Intent(this@Setting_Activity, HistoryActivity::class.java))
-                }
-            })
-        } else {
-            startActivity(Intent(this@Setting_Activity, HistoryActivity::class.java))
-            Log.d("TAG", "onCreate: move to next screen")
-        }
-    }
+//    private fun showInterstitialAdHistory() {
+//        if (AdMobInterstitial.isAlreadyLoaded) {
+//            AdMobInterstitial.showInterstitial(this@Setting_Activity, false)
+//            InterstitialClosedListenerImplementer.setOnInterstitialClosedMaster(object :
+//                InterstitialClosedListener {
+//                override fun onInterstitialClosed() {
+//                    startActivity(Intent(this@Setting_Activity, HistoryActivity::class.java))
+//                }
+//
+//                override fun onInterstitialFailedToShow() {
+//                    startActivity(Intent(this@Setting_Activity, HistoryActivity::class.java))
+//                }
+//            })
+//        } else {
+//            startActivity(Intent(this@Setting_Activity, HistoryActivity::class.java))
+//            Log.d("TAG", "onCreate: move to next screen")
+//        }
+//    }
 
 //    //share app
 //    fun shareApp() {

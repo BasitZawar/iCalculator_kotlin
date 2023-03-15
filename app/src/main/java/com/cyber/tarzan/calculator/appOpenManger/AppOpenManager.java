@@ -15,7 +15,7 @@ import androidx.lifecycle.OnLifecycleEvent;
 import androidx.lifecycle.ProcessLifecycleOwner;
 
 import com.cyber.tarzan.calculator.admob.AdIds;
-import com.cyber.tarzan.calculator.admob.AdMobInterstitial;
+import com.cyber.tarzan.calculator.admob_new_implementation.InterstitialClass;
 import com.cyber.tarzan.calculator.ui.MainApplication;
 import com.cyber.tarzan.calculator.ui.main.MainActivity;
 import com.google.android.gms.ads.AdError;
@@ -112,8 +112,7 @@ public class AppOpenManager implements LifecycleObserver, Application.ActivityLi
         if (!isShowingAd && isAdAvailable()) {
             Log.d(LOG_TAG, "Will show ad.");
 
-            Log.d(LOG_TAG, "Will show ad.");
-            if (AdMobInterstitial.isInterstitialShowing)
+            if (InterstitialClass.isInterstitialShowing)
                 return;
 
             FullScreenContentCallback fullScreenContentCallback =
@@ -153,7 +152,7 @@ public class AppOpenManager implements LifecycleObserver, Application.ActivityLi
             Log.d(LOG_TAG, "Will show ad.");
 
             Log.d(LOG_TAG, "Will show ad.");
-            if (AdMobInterstitial.isInterstitialShowing)
+            if (InterstitialClass.isInterstitialShowing)
                 return;
 
             FullScreenContentCallback fullScreenContentCallback =
