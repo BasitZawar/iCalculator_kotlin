@@ -46,6 +46,7 @@ import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.play.core.review.ReviewInfo
 import com.google.android.play.core.review.ReviewManager
 import com.google.android.play.core.review.ReviewManagerFactory
+import com.google.android.play.core.tasks.Task
 import com.google.type.Color
 import dagger.hilt.android.AndroidEntryPoint
 import petrov.kristiyan.colorpicker.BuildConfig
@@ -61,7 +62,7 @@ class MainActivity : AppCompatActivity() {
     var textColorMainActivity: Int? = null
     var constraintlayout1: Int? = null
     var prefUtil: PrefUtil? = null
-    private val reviewManager: ReviewManager? = null
+    private var reviewManager: ReviewManager? = null
     lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,14 +72,14 @@ class MainActivity : AppCompatActivity() {
 //        setContentView(R.layout.activity_main)
 //        refreshAd()
 
-        val reviewManager = ReviewManagerFactory.create(this)
-        val request = reviewManager.requestReviewFlow()
+        reviewManager = ReviewManagerFactory.create(this)
+        val request: Task<ReviewInfo> = reviewManager!!.requestReviewFlow()
         request.addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                val reviewInfo = task.result
+                val reviewInfo: ReviewInfo = task.getResult()
                 setInAppReview(reviewInfo)
             } else {
-                Log.e("application2", "onCreate: " + task.result)
+                Log.e("application", "onCreate: " + task.getResult())
             }
         }
 
@@ -1116,10 +1117,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // in app review
     private fun setInAppReview(reviewInfo: ReviewInfo) {
-        val flow = reviewManager?.launchReviewFlow(this, reviewInfo)
-        flow?.addOnCompleteListener { }
+        val flow = reviewManager!!.launchReviewFlow(this@MainActivity, reviewInfo)
+        flow.addOnCompleteListener { task: Task<Void?>? -> }
     }
 
     //share app
