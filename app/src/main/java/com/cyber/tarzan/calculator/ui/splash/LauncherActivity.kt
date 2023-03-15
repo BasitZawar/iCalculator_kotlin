@@ -88,7 +88,6 @@ class LauncherActivity : AppCompatActivity() {
 //                    ?.showAdMobBanner(this@SplashScreen, this, findViewById(R.id.bannerLayout))
         }
 
-
         val window: Window = this.window
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.statusBarColor = ContextCompat.getColor(this, R.color.black)
