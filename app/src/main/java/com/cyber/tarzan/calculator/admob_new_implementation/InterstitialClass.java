@@ -55,7 +55,7 @@ public class InterstitialClass {
                             // an ad is loaded.
                             mInterstitialAd = interstitialAd;
                             isAdDecided = true;
-                            Log.d(logTag, "Insterstitial Loaded.");
+                            Log.d(logTag, "Interstitial Loaded.");
 
                             if (!timerCalled) {
                                 closeAdDialog();
@@ -73,7 +73,6 @@ public class InterstitialClass {
                                 closeAdDialog();
                                 performAction();
                             }
-
                         }
                     });
             timerAdDecided();
@@ -138,7 +137,7 @@ public class InterstitialClass {
                 @Override
                 public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
                     super.onAdFailedToShowFullScreenContent(adError);
-                    Log.d(logTag, "Insterstitial Failed to Show.");
+                    Log.d(logTag, "Interstitial Failed to Show.");
                     mInterstitialAd = null;
                     closeAdDialog();
                     performAction();
@@ -154,7 +153,7 @@ public class InterstitialClass {
                 @Override
                 public void onAdDismissedFullScreenContent() {
                     super.onAdDismissedFullScreenContent();
-                    Log.d(logTag, "Insterstitial Shown.");
+                    Log.d(logTag, "Interstitial Shown.");
                     mInterstitialAd = null;
                     closeAdDialog();
                     performAction();

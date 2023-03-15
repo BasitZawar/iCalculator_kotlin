@@ -87,7 +87,7 @@ public class AppOpenManager implements LifecycleObserver, Application.ActivityLi
                         appOpenAd = ad;
                         isLoadingAd = false;
                         loadTime = (new Date()).getTime();
-                        Log.d(LOG_TAG, "onAdLoaded.");
+                        Log.d(LOG_TAG, "AppOpenAd onAdLoaded.");
                         if (!isShowingAd1) {
                             showAdIfAvailable1();
                         }
@@ -110,7 +110,7 @@ public class AppOpenManager implements LifecycleObserver, Application.ActivityLi
         // Only show ad if there is not already an app open ad currently showing
         // and an ad is available.
         if (!isShowingAd && isAdAvailable()) {
-            Log.d(LOG_TAG, "Will show ad.");
+            Log.d(LOG_TAG, "AppOpenAd Will show ad.");
 
             if (InterstitialClass.isInterstitialShowing)
                 return;

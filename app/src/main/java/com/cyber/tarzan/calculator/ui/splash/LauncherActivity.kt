@@ -107,7 +107,6 @@ class LauncherActivity : AppCompatActivity() {
         ) { startActivity(Intent(this@LauncherActivity, MainActivity::class.java)) }
     }
 
-
     override fun onResume() {
         super.onResume()
         MainActivity.islandscape = true
